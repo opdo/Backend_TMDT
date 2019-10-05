@@ -21,6 +21,7 @@ namespace ThuongMaiDienTu
         public int IdCustomer { get; set; }
         public int IdUser { get; set; }
         public bool ReviewStatus { get; set; }
+        public Nullable<System.DateTime> ReviewDate { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         public virtual CUSTOMER CUSTOMER1 { get; set; }

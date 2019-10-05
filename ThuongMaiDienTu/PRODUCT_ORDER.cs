@@ -19,6 +19,7 @@ namespace ThuongMaiDienTu
         public Nullable<byte> Count { get; set; }
         public Nullable<double> Price { get; set; }
         public Nullable<double> Discount { get; set; }
+        public string IMEI { get; set; }
     
         public virtual ORDER ORDER { get; set; }
         public virtual ORDER ORDER1 { get; set; }

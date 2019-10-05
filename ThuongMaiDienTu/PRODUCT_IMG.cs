@@ -20,6 +20,5 @@ namespace ThuongMaiDienTu
         public int IdProduct { get; set; }
     
         public virtual PRODUCT PRODUCT { get; set; }
-        public virtual PRODUCT PRODUCT1 { get; set; }
     }
 }

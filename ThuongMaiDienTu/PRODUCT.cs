@@ -19,9 +19,8 @@ namespace ThuongMaiDienTu
         {
             this.COMMENT_PRODUCT = new HashSet<COMMENT_PRODUCT>();
             this.COMMENT_PRODUCT1 = new HashSet<COMMENT_PRODUCT>();
-            this.PRODUCT_IMG = new HashSet<PRODUCT_IMG>();
             this.PRODUCT_INFO = new HashSet<PRODUCT_INFO>();
-            this.PRODUCT_IMG1 = new HashSet<PRODUCT_IMG>();
+            this.PRODUCT_IMG = new HashSet<PRODUCT_IMG>();
             this.PRODUCT_INFO1 = new HashSet<PRODUCT_INFO>();
             this.PRODUCT_ORDER = new HashSet<PRODUCT_ORDER>();
             this.PRODUCT_ORDER1 = new HashSet<PRODUCT_ORDER>();
@@ -48,11 +47,9 @@ namespace ThuongMaiDienTu
         public virtual USER USER { get; set; }
         public virtual USER USER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCT_IMG> PRODUCT_IMG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT_INFO> PRODUCT_INFO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCT_IMG> PRODUCT_IMG1 { get; set; }
+        public virtual ICollection<PRODUCT_IMG> PRODUCT_IMG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT_INFO> PRODUCT_INFO1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -20,6 +20,7 @@ namespace ThuongMaiDienTu
         public int IdCustomer { get; set; }
         public Nullable<bool> CommentStatus { get; set; }
         public int IdUser { get; set; }
+        public Nullable<System.DateTime> CommentDate { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         public virtual CUSTOMER CUSTOMER1 { get; set; }

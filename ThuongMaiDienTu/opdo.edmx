@@ -12,7 +12,7 @@
           <Property Name="IdCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="255" />
           <Property Name="CategoryIcon" Type="varchar" MaxLength="40" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" />
         </EntityType>
         <EntityType Name="CATEGORY_PRODUCT">
           <Key>
@@ -32,6 +32,7 @@
           <Property Name="IdCustomer" Type="int" Nullable="false" />
           <Property Name="CommentStatus" Type="bit" />
           <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="CommentDate" Type="datetime" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
@@ -70,6 +71,8 @@
           <Property Name="NewsDetail" Type="ntext" />
           <Property Name="NewsThumbail" Type="varchar" MaxLength="255" />
           <Property Name="IdCategory" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" />
+          <Property Name="DateCreate" Type="datetime" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -152,6 +155,7 @@
           <Property Name="Count" Type="tinyint" />
           <Property Name="Price" Type="float" />
           <Property Name="Discount" Type="float" />
+          <Property Name="IMEI" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="PRODUCT_PROMOTION">
           <Key>
@@ -182,6 +186,7 @@
           <Property Name="IdCustomer" Type="int" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
           <Property Name="ReviewStatus" Type="bit" Nullable="false" />
+          <Property Name="ReviewDate" Type="datetime" />
         </EntityType>
         <EntityType Name="ROLE">
           <Key>
@@ -211,7 +216,7 @@
           <Property Name="IdRole" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__CATEGORY___IdUse__34C8D9D1">
-          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
           <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USER">
@@ -223,7 +228,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CATEGORY___IdUse__60A75C0F">
-          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
           <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USER">
@@ -307,18 +312,6 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__NEWS__IdCategory__4316F928">
-          <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="1" />
-          <End Role="NEWS" Type="Self.NEWS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY_NEWS">
-              <PropertyRef Name="IdCategory" />
-            </Principal>
-            <Dependent Role="NEWS">
-              <PropertyRef Name="IdCategory" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__NEWS__IdCategory__6EF57B66">
           <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="1" />
           <End Role="NEWS" Type="Self.NEWS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -591,18 +584,6 @@
             </Principal>
             <Dependent Role="PRODUCT_INFO">
               <PropertyRef Name="IdInfo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PRODUCT_I__IdPro__3C69FB99">
-          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-          <End Role="PRODUCT_IMG" Type="Self.PRODUCT_IMG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCT">
-              <PropertyRef Name="IdProduct" />
-            </Principal>
-            <Dependent Role="PRODUCT_IMG">
-              <PropertyRef Name="IdProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -834,6 +815,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NEWS_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="NEWS" Type="Self.NEWS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="NEWS">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="func_CryptData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
           <Parameter Name="Data" Type="varchar" Mode="In" />
@@ -929,10 +922,6 @@
             <End Role="CATEGORY_NEWS" EntitySet="CATEGORY_NEWS" />
             <End Role="NEWS" EntitySet="NEWS" />
           </AssociationSet>
-          <AssociationSet Name="FK__NEWS__IdCategory__6EF57B66" Association="Self.FK__NEWS__IdCategory__6EF57B66">
-            <End Role="CATEGORY_NEWS" EntitySet="CATEGORY_NEWS" />
-            <End Role="NEWS" EntitySet="NEWS" />
-          </AssociationSet>
           <AssociationSet Name="FK__ORDER__IdCode__49C3F6B7" Association="Self.FK__ORDER__IdCode__49C3F6B7">
             <End Role="GIFTCODE" EntitySet="GIFTCODE" />
             <End Role="ORDER" EntitySet="ORDER" />
@@ -1021,10 +1010,6 @@
             <End Role="INFO" EntitySet="INFO" />
             <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCT_I__IdPro__3C69FB99" Association="Self.FK__PRODUCT_I__IdPro__3C69FB99">
-            <End Role="PRODUCT" EntitySet="PRODUCT" />
-            <End Role="PRODUCT_IMG" EntitySet="PRODUCT_IMG" />
-          </AssociationSet>
           <AssociationSet Name="FK__PRODUCT_I__IdPro__3D5E1FD2" Association="Self.FK__PRODUCT_I__IdPro__3D5E1FD2">
             <End Role="PRODUCT" EntitySet="PRODUCT" />
             <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
@@ -1101,6 +1086,10 @@
             <End Role="ROLE" EntitySet="ROLE" />
             <End Role="USER" EntitySet="USER" />
           </AssociationSet>
+          <AssociationSet Name="FK_NEWS_USER" Association="Self.FK_NEWS_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="NEWS" EntitySet="NEWS" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -1114,11 +1103,10 @@
           <Property Name="IdCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="CategoryIcon" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" />
           <NavigationProperty Name="USER" Relationship="Self.FK__CATEGORY___IdUse__34C8D9D1" FromRole="CATEGORY_NEWS" ToRole="USER" />
           <NavigationProperty Name="USER1" Relationship="Self.FK__CATEGORY___IdUse__60A75C0F" FromRole="CATEGORY_NEWS" ToRole="USER" />
           <NavigationProperty Name="NEWS" Relationship="Self.FK__NEWS__IdCategory__4316F928" FromRole="CATEGORY_NEWS" ToRole="NEWS" />
-          <NavigationProperty Name="NEWS1" Relationship="Self.FK__NEWS__IdCategory__6EF57B66" FromRole="CATEGORY_NEWS" ToRole="NEWS" />
         </EntityType>
         <EntityType Name="CATEGORY_PRODUCT">
           <Key>
@@ -1140,6 +1128,7 @@
           <Property Name="IdCustomer" Type="Int32" Nullable="false" />
           <Property Name="CommentStatus" Type="Boolean" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="CommentDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__COMMENT_P__IdCus__440B1D61" FromRole="COMMENT_PRODUCT" ToRole="CUSTOMER" />
           <NavigationProperty Name="CUSTOMER1" Relationship="Self.FK__COMMENT_P__IdCus__6FE99F9F" FromRole="COMMENT_PRODUCT" ToRole="CUSTOMER" />
           <NavigationProperty Name="PRODUCT" Relationship="Self.FK__COMMENT_P__IdPro__3F466844" FromRole="COMMENT_PRODUCT" ToRole="PRODUCT" />
@@ -1194,8 +1183,10 @@
           <Property Name="NewsDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NewsThumbail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="IdCategory" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" />
+          <Property Name="DateCreate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CATEGORY_NEWS" Relationship="Self.FK__NEWS__IdCategory__4316F928" FromRole="NEWS" ToRole="CATEGORY_NEWS" />
-          <NavigationProperty Name="CATEGORY_NEWS1" Relationship="Self.FK__NEWS__IdCategory__6EF57B66" FromRole="NEWS" ToRole="CATEGORY_NEWS" />
+          <NavigationProperty Name="USER" Relationship="Self.FK_NEWS_USER" FromRole="NEWS" ToRole="USER" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -1281,9 +1272,8 @@
           <NavigationProperty Name="COMMENT_PRODUCT1" Relationship="Self.FK__COMMENT_P__IdPro__6B24EA82" FromRole="PRODUCT" ToRole="COMMENT_PRODUCT" />
           <NavigationProperty Name="USER" Relationship="Self.FK__PRODUCT__IdUser__35BCFE0A" FromRole="PRODUCT" ToRole="USER" />
           <NavigationProperty Name="USER1" Relationship="Self.FK__PRODUCT__IdUser__619B8048" FromRole="PRODUCT" ToRole="USER" />
-          <NavigationProperty Name="PRODUCT_IMG" Relationship="Self.FK__PRODUCT_I__IdPro__3C69FB99" FromRole="PRODUCT" ToRole="PRODUCT_IMG" />
           <NavigationProperty Name="PRODUCT_INFO" Relationship="Self.FK__PRODUCT_I__IdPro__3D5E1FD2" FromRole="PRODUCT" ToRole="PRODUCT_INFO" />
-          <NavigationProperty Name="PRODUCT_IMG1" Relationship="Self.FK__PRODUCT_I__IdPro__68487DD7" FromRole="PRODUCT" ToRole="PRODUCT_IMG" />
+          <NavigationProperty Name="PRODUCT_IMG" Relationship="Self.FK__PRODUCT_I__IdPro__68487DD7" FromRole="PRODUCT" ToRole="PRODUCT_IMG" />
           <NavigationProperty Name="PRODUCT_INFO1" Relationship="Self.FK__PRODUCT_I__IdPro__693CA210" FromRole="PRODUCT" ToRole="PRODUCT_INFO" />
           <NavigationProperty Name="PRODUCT_ORDER" Relationship="Self.FK__PRODUCT_O__IdPro__403A8C7D" FromRole="PRODUCT" ToRole="PRODUCT_ORDER" />
           <NavigationProperty Name="PRODUCT_ORDER1" Relationship="Self.FK__PRODUCT_O__IdPro__6C190EBB" FromRole="PRODUCT" ToRole="PRODUCT_ORDER" />
@@ -1300,8 +1290,7 @@
           <Property Name="Filename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ImgAlt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="IdProduct" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PRODUCT" Relationship="Self.FK__PRODUCT_I__IdPro__3C69FB99" FromRole="PRODUCT_IMG" ToRole="PRODUCT" />
-          <NavigationProperty Name="PRODUCT1" Relationship="Self.FK__PRODUCT_I__IdPro__68487DD7" FromRole="PRODUCT_IMG" ToRole="PRODUCT" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK__PRODUCT_I__IdPro__68487DD7" FromRole="PRODUCT_IMG" ToRole="PRODUCT" />
         </EntityType>
         <EntityType Name="PRODUCT_INFO">
           <Key>
@@ -1326,6 +1315,7 @@
           <Property Name="Count" Type="Byte" />
           <Property Name="Price" Type="Double" />
           <Property Name="Discount" Type="Double" />
+          <Property Name="IMEI" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ORDER" Relationship="Self.FK__PRODUCT_O__IdOrd__46E78A0C" FromRole="PRODUCT_ORDER" ToRole="ORDER" />
           <NavigationProperty Name="ORDER1" Relationship="Self.FK__PRODUCT_O__IdOrd__72C60C4A" FromRole="PRODUCT_ORDER" ToRole="ORDER" />
           <NavigationProperty Name="PRODUCT" Relationship="Self.FK__PRODUCT_O__IdPro__403A8C7D" FromRole="PRODUCT_ORDER" ToRole="PRODUCT" />
@@ -1366,6 +1356,7 @@
           <Property Name="IdCustomer" Type="Int32" Nullable="false" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
           <Property Name="ReviewStatus" Type="Boolean" Nullable="false" />
+          <Property Name="ReviewDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__REVIEW_PR__IdCus__44FF419A" FromRole="REVIEW_PRODUCT" ToRole="CUSTOMER" />
           <NavigationProperty Name="CUSTOMER1" Relationship="Self.FK__REVIEW_PR__IdCus__70DDC3D8" FromRole="REVIEW_PRODUCT" ToRole="CUSTOMER" />
           <NavigationProperty Name="PRODUCT" Relationship="Self.FK__REVIEW_PR__IdPro__3E52440B" FromRole="REVIEW_PRODUCT" ToRole="PRODUCT" />
@@ -1405,6 +1396,7 @@
           <NavigationProperty Name="CATEGORY_NEWS1" Relationship="Self.FK__CATEGORY___IdUse__60A75C0F" FromRole="USER" ToRole="CATEGORY_NEWS" />
           <NavigationProperty Name="COMMENT_PRODUCT" Relationship="Self.FK__COMMENT_P__IdUse__36B12243" FromRole="USER" ToRole="COMMENT_PRODUCT" />
           <NavigationProperty Name="COMMENT_PRODUCT1" Relationship="Self.FK__COMMENT_P__IdUse__628FA481" FromRole="USER" ToRole="COMMENT_PRODUCT" />
+          <NavigationProperty Name="NEWS" Relationship="Self.FK_NEWS_USER" FromRole="USER" ToRole="NEWS" />
           <NavigationProperty Name="ORDERs" Relationship="Self.FK__ORDER__IdUser__38996AB5" FromRole="USER" ToRole="ORDER" />
           <NavigationProperty Name="ORDERs1" Relationship="Self.FK__ORDER__IdUser__6477ECF3" FromRole="USER" ToRole="ORDER" />
           <NavigationProperty Name="ORDER_HISTORY" Relationship="Self.FK__ORDER_HIS__IdUse__398D8EEE" FromRole="USER" ToRole="ORDER_HISTORY" />
@@ -1417,7 +1409,7 @@
           <NavigationProperty Name="ROLE1" Relationship="Self.FK__USER__IdRole__66603565" FromRole="USER" ToRole="ROLE" />
         </EntityType>
         <Association Name="FK__CATEGORY___IdUse__34C8D9D1">
-          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
           <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USER">
@@ -1429,7 +1421,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CATEGORY___IdUse__60A75C0F">
-          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
           <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USER">
@@ -1441,18 +1433,6 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__NEWS__IdCategory__4316F928">
-          <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="1" />
-          <End Role="NEWS" Type="Self.NEWS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY_NEWS">
-              <PropertyRef Name="IdCategory" />
-            </Principal>
-            <Dependent Role="NEWS">
-              <PropertyRef Name="IdCategory" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__NEWS__IdCategory__6EF57B66">
           <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="1" />
           <End Role="NEWS" Type="Self.NEWS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1656,6 +1636,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NEWS_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="NEWS" Type="Self.NEWS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="NEWS">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ORDER__IdPayment__4AB81AF0">
           <End Role="PAYMENT_METHOD" Type="Self.PAYMENT_METHOD" Multiplicity="1" />
           <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
@@ -1845,18 +1837,6 @@
             </Principal>
             <Dependent Role="PRODUCT">
               <PropertyRef Name="IdUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PRODUCT_I__IdPro__3C69FB99">
-          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-          <End Role="PRODUCT_IMG" Type="Self.PRODUCT_IMG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCT">
-              <PropertyRef Name="IdProduct" />
-            </Principal>
-            <Dependent Role="PRODUCT_IMG">
-              <PropertyRef Name="IdProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2074,10 +2054,6 @@
             <End Role="CATEGORY_NEWS" EntitySet="CATEGORY_NEWS" />
             <End Role="NEWS" EntitySet="NEWS" />
           </AssociationSet>
-          <AssociationSet Name="FK__NEWS__IdCategory__6EF57B66" Association="Self.FK__NEWS__IdCategory__6EF57B66">
-            <End Role="CATEGORY_NEWS" EntitySet="CATEGORY_NEWS" />
-            <End Role="NEWS" EntitySet="NEWS" />
-          </AssociationSet>
           <AssociationSet Name="FK__PRODUCT__IdCateg__3B75D760" Association="Self.FK__PRODUCT__IdCateg__3B75D760">
             <End Role="CATEGORY_PRODUCT" EntitySet="CATEGORY_PRODUCT" />
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
@@ -2142,6 +2118,10 @@
             <End Role="INFO" EntitySet="INFOes" />
             <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
           </AssociationSet>
+          <AssociationSet Name="FK_NEWS_USER" Association="Self.FK_NEWS_USER">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="NEWS" EntitySet="NEWS" />
+          </AssociationSet>
           <AssociationSet Name="FK__ORDER__IdPayment__4AB81AF0" Association="Self.FK__ORDER__IdPayment__4AB81AF0">
             <End Role="PAYMENT_METHOD" EntitySet="PAYMENT_METHOD" />
             <End Role="ORDER" EntitySet="ORDERs" />
@@ -2205,10 +2185,6 @@
           <AssociationSet Name="FK__PRODUCT__IdUser__619B8048" Association="Self.FK__PRODUCT__IdUser__619B8048">
             <End Role="USER" EntitySet="USERs" />
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCT_I__IdPro__3C69FB99" Association="Self.FK__PRODUCT_I__IdPro__3C69FB99">
-            <End Role="PRODUCT" EntitySet="PRODUCTs" />
-            <End Role="PRODUCT_IMG" EntitySet="PRODUCT_IMG" />
           </AssociationSet>
           <AssociationSet Name="FK__PRODUCT_I__IdPro__3D5E1FD2" Association="Self.FK__PRODUCT_I__IdPro__3D5E1FD2">
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
@@ -2349,6 +2325,7 @@
                 <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
                 <ScalarProperty Name="CommentStatus" ColumnName="CommentStatus" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2391,6 +2368,8 @@
                 <ScalarProperty Name="NewsDetail" ColumnName="NewsDetail" />
                 <ScalarProperty Name="NewsThumbail" ColumnName="NewsThumbail" />
                 <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2479,6 +2458,7 @@
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="IMEI" ColumnName="IMEI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2511,6 +2491,7 @@
                 <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="ReviewStatus" ColumnName="ReviewStatus" />
+                <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
