@@ -139,12 +139,7 @@
         $.ajax({
             url: '/Ajax/EditCategory',
             type: 'POST',
-            dataType: 'text',
-            data: {
-                IdCategory: id_category,
-                CategoryName: name,
-                CategoryIcon: icon
-            }
+            dataType: 'text'
         }).done(function (ketqua) {
             if (ketqua == "ok") {
                 alert("Lưu dữ liệu thành công");

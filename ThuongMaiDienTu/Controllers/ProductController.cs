@@ -15,9 +15,16 @@ namespace ThuongMaiDienTu.Controllers
         {
             return View();
         }
-        public ActionResult Info()
+        public ActionResult Info(int? id)
         {
-            return View();
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+                if (id is null) return HttpNotFound();
+                var product = db.PRODUCTs.Where(x => x.IdProduct == id).FirstOrDefault();
+                if (product is null) return HttpNotFound();
+                return View(product);
+
+            }
         }
     }
 }

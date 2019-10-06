@@ -102,59 +102,46 @@ namespace ThuongMaiDienTu.Controllers
         [HttpPost]
         public ActionResult PromotionInfo(PROMOTION data)
         {
-            //try
-            //{
-            //    if (String.IsNullOrEmpty(data.PromotionName)) throw new Exception("Tên chương trình khuyến mãi không được bỏ trống");
-            //    if (data.PromotionEnd is null || data.PromotionStart is null) throw new Exception("Thời gian khuyến mãi không được bỏ trống");
-            //    if (data.PromotionEnd.Value < data.PromotionStart.Value) throw new Exception("Thời gian khuyến mãi không hợp lệ");
-            //    using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
-            //    {
+            try
+            {
+                if (String.IsNullOrEmpty(data.PromotionName)) throw new Exception("Tên chương trình khuyến mãi không được bỏ trống");
+                if (data.PromotionEnd is null || data.PromotionStart is null) throw new Exception("Thời gian khuyến mãi không được bỏ trống");
+                if (data.PromotionEnd.Value < data.PromotionStart.Value) throw new Exception("Thời gian khuyến mãi không hợp lệ");
+                using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+                {
 
-            //        if (data.IdPromotion == 0)
-            //        {
-            //            db.PROMOTIONs.Add(data);
-            //        }
-            //        else
-            //        {
-            //            var promotionDB = db.PROMOTIONs.Where(x => x.IdPromotion == data.IdPromotion).FirstOrDefault();
-            //            if (productDB is null) throw new Exception("Không tìm thấy sản phẩm này, vui lòng thử lại");
-            //            productDB.IdCategory = product.IdCategory;
-            //            productDB.ProductName = product.ProductName;
-            //            productDB.ProductPrice = product.ProductPrice;
-            //            productDB.ProductSumary = product.ProductSumary;
-            //            productDB.ProductDetail = product.ProductDetail;
-            //            if (imgChanged)
-            //            {
-            //                if (product.PRODUCT_IMG != null)
-            //                    foreach (var item in productDB.PRODUCT_IMG.ToList())
-            //                        db.PRODUCT_IMG.Remove(item);
-            //                foreach (var item in product.PRODUCT_IMG.ToList())
-            //                    productDB.PRODUCT_IMG.Add(item);
+                    if (data.IdPromotion == 0)
+                    {
+                        db.PROMOTIONs.Add(data);
+                    }
+                    else
+                    {
+                        var promotionDB = db.PROMOTIONs.Where(x => x.IdPromotion == data.IdPromotion).FirstOrDefault();
+                        if (promotionDB is null) throw new Exception("Không tìm thấy chương trình khuyến mãi này, vui lòng thử lại");
+                        promotionDB.PromotionName = data.PromotionName;
+                        promotionDB.PromotionStart = data.PromotionStart;
+                        promotionDB.PromotionEnd = data.PromotionEnd;
 
-            //            }
+                        promotionDB.PRODUCT_PROMOTION.Clear();
+                        if (data.PRODUCT_PROMOTION != null)
+                            foreach (var item in data.PRODUCT_PROMOTION.ToList())
+                                promotionDB.PRODUCT_PROMOTION.Add(item);
 
 
-            //            productDB.PRODUCT_INFO.Clear();
-            //            if (product.PRODUCT_INFO != null)
-            //                foreach (var item in product.PRODUCT_INFO.ToList())
-            //                    productDB.PRODUCT_INFO.Add(item);
+                        data = promotionDB;
 
+                    }
 
-            //            product = productDB;
-
-            //        }
-
-            //        db.SaveChanges();
-            //    }
-            //    ViewBag.Success = "Bài viết được lưu thành công";
-            //    ViewBag.Id = product.IdProduct;
-            //}
-            //catch (Exception ex)
-            //{
-            //    ViewBag.Error = ex.Message;
-            //}
-            //return View(product);
-            return View();
+                    db.SaveChanges();
+                }
+                ViewBag.Success = "Chương trình khuyến mãi lưu thành công";
+                ViewBag.Id = data.IdPromotion;
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+            }
+            return View(data);
         }
 
 

@@ -9,6 +9,86 @@ namespace ThuongMaiDienTu.Controllers
 {
     public class AjaxController : Controller
     {
+
+        public JsonResult AddCart(int id)
+        {
+            if (Session["cart"] is null) Session["cart"] = new List<PRODUCT>();
+
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+                var product = db.PRODUCTs.Where(x => x.IdProduct == id).FirstOrDefault();
+                if (product is null) return new JsonResult()
+                {
+                    Data = new { Success = 0, Message = "Không tìm thấy sản phẩm này" },
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+
+                var list = Session["cart"] as List<PRODUCT>;
+                if (list.Any(x => x.IdProduct == id)) return new JsonResult()
+                {
+                    Data = new { Success = 0, Message = "Sản phẩm này đã được thêm vào giỏ hàng" },
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+
+                list.Add(product);
+
+                Session["cart"] = list;
+
+                return new JsonResult()
+                {
+                    Data = new { Success = 1, Message = list.Count },
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+
+        }
+
+        public JsonResult RemoveCart(int id)
+        {
+            if (Session["cart"] is null) Session["cart"] = new List<PRODUCT>();
+
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+                
+                var list = Session["cart"] as List<PRODUCT>;
+                var product = list.Where(x => x.IdProduct == id).FirstOrDefault();
+                if (product is null) return new JsonResult()
+                {
+                    Data = new { Success = 0, Message = "Không tồn tại sản phẩm trong giỏ hàng" },
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+
+                list.Remove(product);
+
+                Session["cart"] = list;
+
+                return new JsonResult()
+                {
+                    Data = new { Success = 1, Message = list.Count },
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+
+        }
+
+        public JsonResult GetCustomer(string phone)
+        {
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+
+                var customer = db.CUSTOMERs.Where(x => x.CustomerPhone.Equals(phone)).FirstOrDefault();
+                if (customer is null) return null;
+
+                return new JsonResult()
+                {
+                    Data = new { Name = customer.CustomerName, Email = customer.CustomerEmail, Address = customer.CustomerAddress },
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+
+        }
+
+
         public JsonResult GetGiftcode(int id)
         {
             if (Session["login"] is null) return null;
@@ -239,6 +319,13 @@ namespace ThuongMaiDienTu.Controllers
                     if (order.IdStatus != 3) throw new Exception("Chỉ có đơn hàng đang giao mới được duyệt");
                     order.IdStatus = 4;
 
+                    ORDER_HISTORY history = new ORDER_HISTORY();
+                    history.IdOrder = id;
+                    history.IdUser = (Session["login"] as USER).IdUser;
+                    history.IdStatus = order.IdStatus;
+                    history.DateHistory = DateTime.Now;
+                    order.ORDER_HISTORY.Add(history);
+
                     db.SaveChanges();
                 }
                 catch (Exception ex)
@@ -261,6 +348,13 @@ namespace ThuongMaiDienTu.Controllers
                     if (order.IdStatus == 4) throw new Exception("Đơn hàng này đã hoàn thành, không từ chối được");
                     order.IdStatus = 5;
 
+                    ORDER_HISTORY history = new ORDER_HISTORY();
+                    history.IdOrder = id;
+                    history.IdUser = (Session["login"] as USER).IdUser;
+                    history.IdStatus = order.IdStatus;
+                    history.DateHistory = DateTime.Now;
+                    order.ORDER_HISTORY.Add(history);
+
                     db.SaveChanges();
                 }
                 catch (Exception ex)
@@ -281,9 +375,17 @@ namespace ThuongMaiDienTu.Controllers
                 if (order is null) return "Không tìm thấy đối tượng này";
                 try
                 {
-                    if (order.IdStatus == 1 && order.IdStatus != 2) throw new Exception("Đơn hàng này đã không giao được");
+                    if (order.IdStatus != 1 && order.IdStatus != 2) throw new Exception("Đơn hàng này không giao được");
                     if (order.PRODUCT_ORDER.Any(x => String.IsNullOrEmpty(x.IMEI))) throw new Exception("Vui lòng nhập đủ IMEI để giao hàng");
                     order.IdStatus = 3;
+
+                    ORDER_HISTORY history = new ORDER_HISTORY();
+                    history.IdOrder = id;
+                    history.IdUser = (Session["login"] as USER).IdUser;
+                    history.IdStatus = order.IdStatus;
+                    history.DateHistory = DateTime.Now;
+                    order.ORDER_HISTORY.Add(history);
+
                     db.SaveChanges();
                 }
                 catch (Exception ex)
@@ -369,6 +471,7 @@ namespace ThuongMaiDienTu.Controllers
             {
                 var promotion = db.PROMOTIONs.Where(x => x.IdPromotion == id).FirstOrDefault();
                 if (promotion is null) return "Không tìm thấy đối tượng này";
+                
                 db.PROMOTIONs.Remove(promotion);
                 try
                 {

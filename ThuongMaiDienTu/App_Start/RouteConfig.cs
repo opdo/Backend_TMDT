@@ -14,10 +14,16 @@ namespace ThuongMaiDienTu
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Chi tiết tin",
+                url: "{alias}-{id}",
+                new { controller = "Product", action = "Info" }, new { id = @"\d+" }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

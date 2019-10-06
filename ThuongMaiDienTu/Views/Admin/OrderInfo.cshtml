@@ -6,17 +6,23 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Thông tin đơn hàng</h2>
-
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Thông tin</a></li>
-    <li><a data-toggle="tab" href="#menu1">Lịch sử chỉnh sửa</a></li>
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#home">Thông tin</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu1">Lịch sử chỉnh sửa</a>
+    </li>
+
 </ul>
+
+
+
 @using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
 {
     var order = db.ORDERs.Where(x => x.IdOrder == Model.IdOrder).FirstOrDefault();
     <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
+        <div id="home" class="tab-pane active">
             <div class="col">
                 <div class="row">
                     <div class="col-4">
@@ -199,7 +205,7 @@
                             </td>
                             <td>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="product-@product.IdProduct" maxlength="50" placeholder="Số IMEI">
+                                    <input type="text" class="form-control" id="product-@product.IdProduct" value="@product.IMEI" maxlength="50" placeholder="Số IMEI">
                                     <div class="input-group-btn">
                                         <button class="btn btn-default" type="button" onclick="UpdateImei(@product.IdProduct)">
                                             <i class="fas fa-save"></i>
@@ -242,10 +248,10 @@
 
                     @foreach (var history in order.ORDER_HISTORY.OrderByDescending(x => x.IdHistory).ToList())
                     {
-
+                        var ngayGio = history.DateHistory is null ? "Không có thông tin" : history.DateHistory.Value.ToString("dd/MM/yyyy HH:mm:ss");
                         <tr>
                             <td>
-                                @history.DateHistory.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                @ngayGio
                             </td>
                             <td>
                                 @history.USER.Fullname
@@ -262,7 +268,7 @@
 
     </div>
 }
-/**/
+
 
 <script>
     function Deny(id) {

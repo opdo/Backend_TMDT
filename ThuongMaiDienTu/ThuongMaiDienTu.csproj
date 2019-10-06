@@ -178,9 +178,7 @@
       <DependentUpon>opdo.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdminController.cs" />
-
     <Compile Include="Controllers\CartController.cs" />
-
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -196,15 +194,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\RemoveVietnamese.cs" />
+    <Compile Include="Helper\VNPay.cs" />
     <Compile Include="INFO.cs">
       <DependentUpon>opdo.tt</DependentUpon>
     </Compile>
-
     <Compile Include="Models\GioHang.cs" />
-
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\InfoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\OrderInfoModel.cs" />
     <Compile Include="Models\ProductOrderModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="NEWS.cs">
@@ -276,6 +274,39 @@
     <Content Include="AdminAssets\js\sb-admin-2.js" />
     <Content Include="AdminAssets\js\sb-admin-2.min.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="img\bank\ABBANK.png" />
+    <Content Include="img\bank\ACB.png" />
+    <Content Include="img\bank\AGRIBANK.png" />
+    <Content Include="img\bank\BACABANK.png" />
+    <Content Include="img\bank\BIDV.png" />
+    <Content Include="img\bank\DONGABANK.png" />
+    <Content Include="img\bank\EXIMBANK.png" />
+    <Content Include="img\bank\HDBANK.png" />
+    <Content Include="img\bank\IVB.png" />
+    <Content Include="img\bank\JCB.png" />
+    <Content Include="img\bank\MASTERCARD.png" />
+    <Content Include="img\bank\MBBANK.png" />
+    <Content Include="img\bank\MSBANK.png" />
+    <Content Include="img\bank\NAMABANK.png" />
+    <Content Include="img\bank\NCB.png" />
+    <Content Include="img\bank\OCB.png" />
+    <Content Include="img\bank\OJB.png" />
+    <Content Include="img\bank\PVCOMBANK.png" />
+    <Content Include="img\bank\SACOMBANK.png" />
+    <Content Include="img\bank\SAIGONBANK.png" />
+    <Content Include="img\bank\SCB.png" />
+    <Content Include="img\bank\SHB.png" />
+    <Content Include="img\bank\TECHCOMBANK.png" />
+    <Content Include="img\bank\TPBANK.png" />
+    <Content Include="img\bank\UPI.png" />
+    <Content Include="img\bank\VIB.png" />
+    <Content Include="img\bank\VIETCAPITALBANK.png" />
+    <Content Include="img\bank\VIETCOMBANK.png" />
+    <Content Include="img\bank\VIETINBANK.png" />
+    <Content Include="img\bank\VISA.png" />
+    <Content Include="img\bank\VNMART.png" />
+    <Content Include="img\bank\VNPAYQR.png" />
+    <Content Include="img\bank\VPBANK.png" />
     <Content Include="img\product\-iphone-7-plus-thumbvideo3.jpg" />
     <Content Include="img\product\apple-iphone-11-pro-1_800x451.jpg" />
     <Content Include="img\product\banner.png" />
@@ -306,10 +337,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-
     <Content Include="Content\Gio-hang.css" />
     <Content Include="Content\Item.css" />
-
     <Content Include="Content\dataTables.bootstrap4.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\product.css" />
@@ -359,9 +388,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
-
     <Content Include="Scripts\main.js" />
-
     <Content Include="Scripts\ckeditor.js" />
     <Content Include="Scripts\config.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
@@ -468,6 +495,7 @@
     <Content Include="opdo.edmx.diagram">
       <DependentUpon>opdo.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -503,20 +531,15 @@
     <Content Include="webfonts\fa-solid-900.woff" />
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Admin\User.cshtml" />
-
     <Content Include="Views\Product\Info.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Info.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Cart\KhongCoHang.cshtml" />
-    <Content Include="Views\Cart\DatHang.cshtml" />
-    <Content Include="Views\Cart\GioHangPartial.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
+    <Content Include="Views\Cart\Fail.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="assets\" />
-
     <Content Include="Views\Admin\CategoryProduct.cshtml" />
     <Content Include="Views\Admin\CategoryNews.cshtml" />
     <Content Include="Views\Admin\ProductInfo.cshtml" />
@@ -536,8 +559,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\" />
     <Folder Include="img\news\" />
-    <Folder Include="img\product\" />
     <Folder Include="Views\Ajax\" />
   </ItemGroup>
   <ItemGroup>

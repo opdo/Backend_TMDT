@@ -1,4 +1,5 @@
-﻿
+﻿@using ThuongMaiDienTu.Helper;
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -51,18 +52,20 @@
             <!--main-->
 
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    @using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+
+                @using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+                {
+                    foreach (var product in db.PRODUCTs.ToList())
                     {
-                        foreach (var product in db.PRODUCTs.ToList())
-                        {
+                        string link = "/"+ RemoveVietnamese.RemoveSign4VietnameseString(@product.ProductName).Replace(" ", "-")+"-"+product.IdProduct;
+                        <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
-                                <a href="#"><img class="card-img-top product_img" src="~/img/product/@product.PRODUCT_IMG.FirstOrDefault().Filename" alt="@product.PRODUCT_IMG.FirstOrDefault().ImgAlt"></a>
+                                <a href="@link" class="text-center"><img class="card-img-top product_img" style="height: 220px" src="~/img/product/@product.PRODUCT_IMG.FirstOrDefault().Filename" alt="@product.PRODUCT_IMG.FirstOrDefault().ImgAlt"></a>
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="~/Product/Info">@product.ProductName</a>
+                                        <a href="@link">@product.ProductName</a>
                                     </h4>
-                                    <h5 class="product_price">@string.Format("{0:0,0}", product.ProductPrice) VNĐ</h5>
+                                    <h5 class="product_price">@String.Format("{0:0,0}", product.ProductPrice) VNĐ</h5>
                                     <p class="card-text product_sumary">
                                         @product.ProductSumary
                                     </p>
@@ -71,9 +74,10 @@
                                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                                 </div>
                             </div>
-                        }
+                        </div>
                     }
-                </div>
+                }
+
 
 
 
