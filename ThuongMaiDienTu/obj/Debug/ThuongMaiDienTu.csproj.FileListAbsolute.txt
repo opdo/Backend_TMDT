@@ -80,3 +80,11 @@ C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.
 C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.csproj.CopyComplete
 C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.dll
 C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.pdb
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\EntityFramework.dll
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\EntityFramework.SqlServer.dll
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\PagedList.dll
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\PagedList.Mvc.dll
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\EntityFramework.xml
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\EntityFramework.SqlServer.xml
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\PagedList.xml
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\PagedList.Mvc.xml

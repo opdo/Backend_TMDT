@@ -1,0 +1,1415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="THUONGMAIDIENTUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORY_NEWS">
+    <Key>
+      <PropertyRef Name="IdCategory" />
+    </Key>
+    <Property Name="IdCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CategoryIcon" Type="varchar" MaxLength="40" />
+    <Property Name="IdUser" Type="int" />
+  </EntityType>
+  <EntityType Name="CATEGORY_PRODUCT">
+    <Key>
+      <PropertyRef Name="IdCategory" />
+    </Key>
+    <Property Name="IdCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="CategoryIcon" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COMMENT_PRODUCT">
+    <Key>
+      <PropertyRef Name="IdComment" />
+    </Key>
+    <Property Name="IdComment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentContent" Type="nvarchar" MaxLength="255" />
+    <Property Name="IdProduct" Type="int" Nullable="false" />
+    <Property Name="IdCustomer" Type="int" Nullable="false" />
+    <Property Name="CommentStatus" Type="bit" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="CommentDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="IdCustomer" />
+    </Key>
+    <Property Name="IdCustomer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="40" />
+    <Property Name="CustomerAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerPhone" Type="varchar" MaxLength="10" />
+    <Property Name="CustomerEmail" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="GIFTCODE">
+    <Key>
+      <PropertyRef Name="IdCode" />
+    </Key>
+    <Property Name="IdCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="INFO">
+    <Key>
+      <PropertyRef Name="IdInfo" />
+    </Key>
+    <Property Name="IdInfo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InfoName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="InfoCategory" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="NEWS">
+    <Key>
+      <PropertyRef Name="IdNews" />
+    </Key>
+    <Property Name="IdNews" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NewsTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="NewsSumary" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="NewsDetail" Type="ntext" />
+    <Property Name="NewsThumbail" Type="varchar" MaxLength="255" />
+    <Property Name="IdCategory" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="DateCreate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="IdOrder" />
+    </Key>
+    <Property Name="IdOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCode" Type="int" />
+    <Property Name="IdCustomer" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="DateOrder" Type="datetime" />
+    <Property Name="DateDelivery" Type="smalldatetime" />
+    <Property Name="TimeDelivery" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="Total" Type="float" />
+    <Property Name="OrderComment" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdPayment" Type="int" Nullable="false" />
+    <Property Name="IdStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDER_HISTORY">
+    <Key>
+      <PropertyRef Name="IdHistory" />
+    </Key>
+    <Property Name="IdHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdOrder" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+    <Property Name="DateHistory" Type="datetime" />
+    <Property Name="IdStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAYMENT_METHOD">
+    <Key>
+      <PropertyRef Name="IdPayment" />
+    </Key>
+    <Property Name="IdPayment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PAYMENT_STATUS">
+    <Key>
+      <PropertyRef Name="IdStatus" />
+    </Key>
+    <Property Name="IdStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="IdProduct" />
+    </Key>
+    <Property Name="IdProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="ProductSumary" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProductDetail" Type="ntext" />
+    <Property Name="ProductPrice" Type="float" Nullable="false" />
+    <Property Name="IdCategory" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCT_IMG">
+    <Key>
+      <PropertyRef Name="IdImg" />
+    </Key>
+    <Property Name="IdImg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Filename" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImgAlt" Type="nvarchar" MaxLength="255" />
+    <Property Name="IdProduct" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCT_INFO">
+    <Key>
+      <PropertyRef Name="IdProduct" />
+      <PropertyRef Name="IdInfo" />
+    </Key>
+    <Property Name="IdProduct" Type="int" Nullable="false" />
+    <Property Name="IdInfo" Type="int" Nullable="false" />
+    <Property Name="Info" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PRODUCT_ORDER">
+    <Key>
+      <PropertyRef Name="IdProduct" />
+      <PropertyRef Name="IdOrder" />
+    </Key>
+    <Property Name="IdProduct" Type="int" Nullable="false" />
+    <Property Name="IdOrder" Type="int" Nullable="false" />
+    <Property Name="Count" Type="tinyint" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="IMEI" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PRODUCT_PROMOTION">
+    <Key>
+      <PropertyRef Name="IdProduct" />
+      <PropertyRef Name="IdPromotion" />
+    </Key>
+    <Property Name="IdProduct" Type="int" Nullable="false" />
+    <Property Name="IdPromotion" Type="int" Nullable="false" />
+    <Property Name="Discount" Type="float" />
+  </EntityType>
+  <EntityType Name="PROMOTION">
+    <Key>
+      <PropertyRef Name="IdPromotion" />
+    </Key>
+    <Property Name="IdPromotion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PromotionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="PromotionStart" Type="datetime" />
+    <Property Name="PromotionEnd" Type="datetime" />
+  </EntityType>
+  <EntityType Name="REVIEW_PRODUCT">
+    <Key>
+      <PropertyRef Name="IdReview" />
+    </Key>
+    <Property Name="IdReview" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReviewContent" Type="nvarchar" MaxLength="255" />
+    <Property Name="ReviewPoint" Type="tinyint" Nullable="false" />
+    <Property Name="IdProduct" Type="int" Nullable="false" />
+    <Property Name="IdCustomer" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="ReviewStatus" Type="bit" Nullable="false" />
+    <Property Name="ReviewDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ROLE">
+    <Key>
+      <PropertyRef Name="IdRole" />
+    </Key>
+    <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="40" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CATEGORY___IdUse__34C8D9D1">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="CATEGORY_NEWS">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CATEGORY___IdUse__60A75C0F">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="CATEGORY_NEWS">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdCus__02084FDA">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdCus__02FC7413">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdCus__37A5467C">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdCus__38996AB5">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdPro__03F0984C">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdPro__04E4BC85">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdPro__398D8EEE">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdPro__3A81B327">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdUse__36B12243">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT_P__IdUse__628FA481">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="COMMENT_PRODUCT" Type="Self.COMMENT_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="COMMENT_PRODUCT">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NEWS__IdCategory__4316F928">
+    <End Role="CATEGORY_NEWS" Type="Self.CATEGORY_NEWS" Multiplicity="1" />
+    <End Role="NEWS" Type="Self.NEWS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY_NEWS">
+        <PropertyRef Name="IdCategory" />
+      </Principal>
+      <Dependent Role="NEWS">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdCode__49C3F6B7">
+    <End Role="GIFTCODE" Type="Self.GIFTCODE" Multiplicity="0..1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIFTCODE">
+        <PropertyRef Name="IdCode" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdCode__75A278F5">
+    <End Role="GIFTCODE" Type="Self.GIFTCODE" Multiplicity="0..1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIFTCODE">
+        <PropertyRef Name="IdCode" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdCustome__45F365D3">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdCustome__71D1E811">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdPayment__4AB81AF0">
+    <End Role="PAYMENT_METHOD" Type="Self.PAYMENT_METHOD" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_METHOD">
+        <PropertyRef Name="IdPayment" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdPayment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdPayment__76969D2E">
+    <End Role="PAYMENT_METHOD" Type="Self.PAYMENT_METHOD" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_METHOD">
+        <PropertyRef Name="IdPayment" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdPayment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdStatus__4BAC3F29">
+    <End Role="PAYMENT_STATUS" Type="Self.PAYMENT_STATUS" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_STATUS">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdStatus__778AC167">
+    <End Role="PAYMENT_STATUS" Type="Self.PAYMENT_STATUS" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_STATUS">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdUser__38996AB5">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__IdUser__6477ECF3">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_HIS__IdOrd__47DBAE45">
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+    <End Role="ORDER_HISTORY" Type="Self.ORDER_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER">
+        <PropertyRef Name="IdOrder" />
+      </Principal>
+      <Dependent Role="ORDER_HISTORY">
+        <PropertyRef Name="IdOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_HIS__IdOrd__73BA3083">
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+    <End Role="ORDER_HISTORY" Type="Self.ORDER_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER">
+        <PropertyRef Name="IdOrder" />
+      </Principal>
+      <Dependent Role="ORDER_HISTORY">
+        <PropertyRef Name="IdOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_HIS__IdSta__05D8E0BE">
+    <End Role="PAYMENT_STATUS" Type="Self.PAYMENT_STATUS" Multiplicity="1" />
+    <End Role="ORDER_HISTORY" Type="Self.ORDER_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_STATUS">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="ORDER_HISTORY">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_HIS__IdSta__06CD04F7">
+    <End Role="PAYMENT_STATUS" Type="Self.PAYMENT_STATUS" Multiplicity="1" />
+    <End Role="ORDER_HISTORY" Type="Self.ORDER_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_STATUS">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="ORDER_HISTORY">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_HIS__IdSta__4AB81AF0">
+    <End Role="PAYMENT_STATUS" Type="Self.PAYMENT_STATUS" Multiplicity="1" />
+    <End Role="ORDER_HISTORY" Type="Self.ORDER_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_STATUS">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="ORDER_HISTORY">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_HIS__IdSta__4BAC3F29">
+    <End Role="PAYMENT_STATUS" Type="Self.PAYMENT_STATUS" Multiplicity="1" />
+    <End Role="ORDER_HISTORY" Type="Self.ORDER_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAYMENT_STATUS">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="ORDER_HISTORY">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_HIS__IdUse__398D8EEE">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="ORDER_HISTORY" Type="Self.ORDER_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="ORDER_HISTORY">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_HIS__IdUse__656C112C">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="ORDER_HISTORY" Type="Self.ORDER_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="ORDER_HISTORY">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT__IdCateg__07C12930">
+    <End Role="CATEGORY_PRODUCT" Type="Self.CATEGORY_PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY_PRODUCT">
+        <PropertyRef Name="IdCategory" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT__IdCateg__08B54D69">
+    <End Role="CATEGORY_PRODUCT" Type="Self.CATEGORY_PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY_PRODUCT">
+        <PropertyRef Name="IdCategory" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT__IdCateg__4E88ABD4">
+    <End Role="CATEGORY_PRODUCT" Type="Self.CATEGORY_PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY_PRODUCT">
+        <PropertyRef Name="IdCategory" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT__IdCateg__4F7CD00D">
+    <End Role="CATEGORY_PRODUCT" Type="Self.CATEGORY_PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY_PRODUCT">
+        <PropertyRef Name="IdCategory" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT__IdUser__35BCFE0A">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT__IdUser__619B8048">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdInf__0A9D95DB">
+    <End Role="INFO" Type="Self.INFO" Multiplicity="1" />
+    <End Role="PRODUCT_INFO" Type="Self.PRODUCT_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INFO">
+        <PropertyRef Name="IdInfo" />
+      </Principal>
+      <Dependent Role="PRODUCT_INFO">
+        <PropertyRef Name="IdInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdInf__0B91BA14">
+    <End Role="INFO" Type="Self.INFO" Multiplicity="1" />
+    <End Role="PRODUCT_INFO" Type="Self.PRODUCT_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INFO">
+        <PropertyRef Name="IdInfo" />
+      </Principal>
+      <Dependent Role="PRODUCT_INFO">
+        <PropertyRef Name="IdInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdInf__534D60F1">
+    <End Role="INFO" Type="Self.INFO" Multiplicity="1" />
+    <End Role="PRODUCT_INFO" Type="Self.PRODUCT_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INFO">
+        <PropertyRef Name="IdInfo" />
+      </Principal>
+      <Dependent Role="PRODUCT_INFO">
+        <PropertyRef Name="IdInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdInf__5441852A">
+    <End Role="INFO" Type="Self.INFO" Multiplicity="1" />
+    <End Role="PRODUCT_INFO" Type="Self.PRODUCT_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INFO">
+        <PropertyRef Name="IdInfo" />
+      </Principal>
+      <Dependent Role="PRODUCT_INFO">
+        <PropertyRef Name="IdInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdPro__09A971A2">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_IMG" Type="Self.PRODUCT_IMG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_IMG">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdPro__0C85DE4D">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_INFO" Type="Self.PRODUCT_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_INFO">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdPro__0D7A0286">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_INFO" Type="Self.PRODUCT_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_INFO">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdPro__52593CB8">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_IMG" Type="Self.PRODUCT_IMG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_IMG">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdPro__5535A963">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_INFO" Type="Self.PRODUCT_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_INFO">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_I__IdPro__5629CD9C">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_INFO" Type="Self.PRODUCT_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_INFO">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_O__IdOrd__46E78A0C">
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+    <End Role="PRODUCT_ORDER" Type="Self.PRODUCT_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER">
+        <PropertyRef Name="IdOrder" />
+      </Principal>
+      <Dependent Role="PRODUCT_ORDER">
+        <PropertyRef Name="IdOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_O__IdOrd__72C60C4A">
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+    <End Role="PRODUCT_ORDER" Type="Self.PRODUCT_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER">
+        <PropertyRef Name="IdOrder" />
+      </Principal>
+      <Dependent Role="PRODUCT_ORDER">
+        <PropertyRef Name="IdOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_O__IdPro__0E6E26BF">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_ORDER" Type="Self.PRODUCT_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_ORDER">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_O__IdPro__0F624AF8">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_ORDER" Type="Self.PRODUCT_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_ORDER">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_O__IdPro__59063A47">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_ORDER" Type="Self.PRODUCT_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_ORDER">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_O__IdPro__59FA5E80">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_ORDER" Type="Self.PRODUCT_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_ORDER">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_P__IdPro__10566F31">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_PROMOTION" Type="Self.PRODUCT_PROMOTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_PROMOTION">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_P__IdPro__114A936A">
+    <End Role="PROMOTION" Type="Self.PROMOTION" Multiplicity="1" />
+    <End Role="PRODUCT_PROMOTION" Type="Self.PRODUCT_PROMOTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROMOTION">
+        <PropertyRef Name="IdPromotion" />
+      </Principal>
+      <Dependent Role="PRODUCT_PROMOTION">
+        <PropertyRef Name="IdPromotion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_P__IdPro__123EB7A3">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_PROMOTION" Type="Self.PRODUCT_PROMOTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_PROMOTION">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_P__IdPro__1332DBDC">
+    <End Role="PROMOTION" Type="Self.PROMOTION" Multiplicity="1" />
+    <End Role="PRODUCT_PROMOTION" Type="Self.PRODUCT_PROMOTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROMOTION">
+        <PropertyRef Name="IdPromotion" />
+      </Principal>
+      <Dependent Role="PRODUCT_PROMOTION">
+        <PropertyRef Name="IdPromotion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_P__IdPro__5AEE82B9">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_PROMOTION" Type="Self.PRODUCT_PROMOTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_PROMOTION">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_P__IdPro__5BE2A6F2">
+    <End Role="PROMOTION" Type="Self.PROMOTION" Multiplicity="1" />
+    <End Role="PRODUCT_PROMOTION" Type="Self.PRODUCT_PROMOTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROMOTION">
+        <PropertyRef Name="IdPromotion" />
+      </Principal>
+      <Dependent Role="PRODUCT_PROMOTION">
+        <PropertyRef Name="IdPromotion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_P__IdPro__5CD6CB2B">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_PROMOTION" Type="Self.PRODUCT_PROMOTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="PRODUCT_PROMOTION">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_P__IdPro__5DCAEF64">
+    <End Role="PROMOTION" Type="Self.PROMOTION" Multiplicity="1" />
+    <End Role="PRODUCT_PROMOTION" Type="Self.PRODUCT_PROMOTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROMOTION">
+        <PropertyRef Name="IdPromotion" />
+      </Principal>
+      <Dependent Role="PRODUCT_PROMOTION">
+        <PropertyRef Name="IdPromotion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdCus__14270015">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdCus__151B244E">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdCus__5EBF139D">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdCus__5FB337D6">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdPro__160F4887">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdPro__17036CC0">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdPro__60A75C0F">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdPro__619B8048">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdUse__37A5467C">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEW_PR__IdUse__6383C8BA">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="REVIEW_PRODUCT" Type="Self.REVIEW_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="REVIEW_PRODUCT">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USER__IdRole__3A81B327">
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLE">
+        <PropertyRef Name="IdRole" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USER__IdRole__66603565">
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLE">
+        <PropertyRef Name="IdRole" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NEWS_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="NEWS" Type="Self.NEWS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="NEWS">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="func_CryptData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="Data" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_CryptData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Data" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="THUONGMAIDIENTUModelStoreContainer">
+    <EntitySet Name="CATEGORY_NEWS" EntityType="Self.CATEGORY_NEWS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATEGORY_PRODUCT" EntityType="Self.CATEGORY_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COMMENT_PRODUCT" EntityType="Self.COMMENT_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIFTCODE" EntityType="Self.GIFTCODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INFO" EntityType="Self.INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NEWS" EntityType="Self.NEWS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAYMENT_METHOD" EntityType="Self.PAYMENT_METHOD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAYMENT_STATUS" EntityType="Self.PAYMENT_STATUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT_IMG" EntityType="Self.PRODUCT_IMG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT_INFO" EntityType="Self.PRODUCT_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT_ORDER" EntityType="Self.PRODUCT_ORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT_PROMOTION" EntityType="Self.PRODUCT_PROMOTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROMOTION" EntityType="Self.PROMOTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REVIEW_PRODUCT" EntityType="Self.REVIEW_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CATEGORY___IdUse__34C8D9D1" Association="Self.FK__CATEGORY___IdUse__34C8D9D1">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="CATEGORY_NEWS" EntitySet="CATEGORY_NEWS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CATEGORY___IdUse__60A75C0F" Association="Self.FK__CATEGORY___IdUse__60A75C0F">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="CATEGORY_NEWS" EntitySet="CATEGORY_NEWS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdCus__02084FDA" Association="Self.FK__COMMENT_P__IdCus__02084FDA">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdCus__02FC7413" Association="Self.FK__COMMENT_P__IdCus__02FC7413">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdCus__37A5467C" Association="Self.FK__COMMENT_P__IdCus__37A5467C">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdCus__38996AB5" Association="Self.FK__COMMENT_P__IdCus__38996AB5">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdPro__03F0984C" Association="Self.FK__COMMENT_P__IdPro__03F0984C">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdPro__04E4BC85" Association="Self.FK__COMMENT_P__IdPro__04E4BC85">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdPro__398D8EEE" Association="Self.FK__COMMENT_P__IdPro__398D8EEE">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdPro__3A81B327" Association="Self.FK__COMMENT_P__IdPro__3A81B327">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdUse__36B12243" Association="Self.FK__COMMENT_P__IdUse__36B12243">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT_P__IdUse__628FA481" Association="Self.FK__COMMENT_P__IdUse__628FA481">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="COMMENT_PRODUCT" EntitySet="COMMENT_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NEWS__IdCategory__4316F928" Association="Self.FK__NEWS__IdCategory__4316F928">
+      <End Role="CATEGORY_NEWS" EntitySet="CATEGORY_NEWS" />
+      <End Role="NEWS" EntitySet="NEWS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdCode__49C3F6B7" Association="Self.FK__ORDER__IdCode__49C3F6B7">
+      <End Role="GIFTCODE" EntitySet="GIFTCODE" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdCode__75A278F5" Association="Self.FK__ORDER__IdCode__75A278F5">
+      <End Role="GIFTCODE" EntitySet="GIFTCODE" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdCustome__45F365D3" Association="Self.FK__ORDER__IdCustome__45F365D3">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdCustome__71D1E811" Association="Self.FK__ORDER__IdCustome__71D1E811">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdPayment__4AB81AF0" Association="Self.FK__ORDER__IdPayment__4AB81AF0">
+      <End Role="PAYMENT_METHOD" EntitySet="PAYMENT_METHOD" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdPayment__76969D2E" Association="Self.FK__ORDER__IdPayment__76969D2E">
+      <End Role="PAYMENT_METHOD" EntitySet="PAYMENT_METHOD" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdStatus__4BAC3F29" Association="Self.FK__ORDER__IdStatus__4BAC3F29">
+      <End Role="PAYMENT_STATUS" EntitySet="PAYMENT_STATUS" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdStatus__778AC167" Association="Self.FK__ORDER__IdStatus__778AC167">
+      <End Role="PAYMENT_STATUS" EntitySet="PAYMENT_STATUS" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdUser__38996AB5" Association="Self.FK__ORDER__IdUser__38996AB5">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__IdUser__6477ECF3" Association="Self.FK__ORDER__IdUser__6477ECF3">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_HIS__IdOrd__47DBAE45" Association="Self.FK__ORDER_HIS__IdOrd__47DBAE45">
+      <End Role="ORDER" EntitySet="ORDER" />
+      <End Role="ORDER_HISTORY" EntitySet="ORDER_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_HIS__IdOrd__73BA3083" Association="Self.FK__ORDER_HIS__IdOrd__73BA3083">
+      <End Role="ORDER" EntitySet="ORDER" />
+      <End Role="ORDER_HISTORY" EntitySet="ORDER_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_HIS__IdSta__05D8E0BE" Association="Self.FK__ORDER_HIS__IdSta__05D8E0BE">
+      <End Role="PAYMENT_STATUS" EntitySet="PAYMENT_STATUS" />
+      <End Role="ORDER_HISTORY" EntitySet="ORDER_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_HIS__IdSta__06CD04F7" Association="Self.FK__ORDER_HIS__IdSta__06CD04F7">
+      <End Role="PAYMENT_STATUS" EntitySet="PAYMENT_STATUS" />
+      <End Role="ORDER_HISTORY" EntitySet="ORDER_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_HIS__IdSta__4AB81AF0" Association="Self.FK__ORDER_HIS__IdSta__4AB81AF0">
+      <End Role="PAYMENT_STATUS" EntitySet="PAYMENT_STATUS" />
+      <End Role="ORDER_HISTORY" EntitySet="ORDER_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_HIS__IdSta__4BAC3F29" Association="Self.FK__ORDER_HIS__IdSta__4BAC3F29">
+      <End Role="PAYMENT_STATUS" EntitySet="PAYMENT_STATUS" />
+      <End Role="ORDER_HISTORY" EntitySet="ORDER_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_HIS__IdUse__398D8EEE" Association="Self.FK__ORDER_HIS__IdUse__398D8EEE">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="ORDER_HISTORY" EntitySet="ORDER_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_HIS__IdUse__656C112C" Association="Self.FK__ORDER_HIS__IdUse__656C112C">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="ORDER_HISTORY" EntitySet="ORDER_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__IdCateg__07C12930" Association="Self.FK__PRODUCT__IdCateg__07C12930">
+      <End Role="CATEGORY_PRODUCT" EntitySet="CATEGORY_PRODUCT" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__IdCateg__08B54D69" Association="Self.FK__PRODUCT__IdCateg__08B54D69">
+      <End Role="CATEGORY_PRODUCT" EntitySet="CATEGORY_PRODUCT" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__IdCateg__4E88ABD4" Association="Self.FK__PRODUCT__IdCateg__4E88ABD4">
+      <End Role="CATEGORY_PRODUCT" EntitySet="CATEGORY_PRODUCT" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__IdCateg__4F7CD00D" Association="Self.FK__PRODUCT__IdCateg__4F7CD00D">
+      <End Role="CATEGORY_PRODUCT" EntitySet="CATEGORY_PRODUCT" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__IdUser__35BCFE0A" Association="Self.FK__PRODUCT__IdUser__35BCFE0A">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__IdUser__619B8048" Association="Self.FK__PRODUCT__IdUser__619B8048">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdInf__0A9D95DB" Association="Self.FK__PRODUCT_I__IdInf__0A9D95DB">
+      <End Role="INFO" EntitySet="INFO" />
+      <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdInf__0B91BA14" Association="Self.FK__PRODUCT_I__IdInf__0B91BA14">
+      <End Role="INFO" EntitySet="INFO" />
+      <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdInf__534D60F1" Association="Self.FK__PRODUCT_I__IdInf__534D60F1">
+      <End Role="INFO" EntitySet="INFO" />
+      <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdInf__5441852A" Association="Self.FK__PRODUCT_I__IdInf__5441852A">
+      <End Role="INFO" EntitySet="INFO" />
+      <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdPro__09A971A2" Association="Self.FK__PRODUCT_I__IdPro__09A971A2">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_IMG" EntitySet="PRODUCT_IMG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdPro__0C85DE4D" Association="Self.FK__PRODUCT_I__IdPro__0C85DE4D">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdPro__0D7A0286" Association="Self.FK__PRODUCT_I__IdPro__0D7A0286">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdPro__52593CB8" Association="Self.FK__PRODUCT_I__IdPro__52593CB8">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_IMG" EntitySet="PRODUCT_IMG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdPro__5535A963" Association="Self.FK__PRODUCT_I__IdPro__5535A963">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_I__IdPro__5629CD9C" Association="Self.FK__PRODUCT_I__IdPro__5629CD9C">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_INFO" EntitySet="PRODUCT_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_O__IdOrd__46E78A0C" Association="Self.FK__PRODUCT_O__IdOrd__46E78A0C">
+      <End Role="ORDER" EntitySet="ORDER" />
+      <End Role="PRODUCT_ORDER" EntitySet="PRODUCT_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_O__IdOrd__72C60C4A" Association="Self.FK__PRODUCT_O__IdOrd__72C60C4A">
+      <End Role="ORDER" EntitySet="ORDER" />
+      <End Role="PRODUCT_ORDER" EntitySet="PRODUCT_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_O__IdPro__0E6E26BF" Association="Self.FK__PRODUCT_O__IdPro__0E6E26BF">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_ORDER" EntitySet="PRODUCT_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_O__IdPro__0F624AF8" Association="Self.FK__PRODUCT_O__IdPro__0F624AF8">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_ORDER" EntitySet="PRODUCT_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_O__IdPro__59063A47" Association="Self.FK__PRODUCT_O__IdPro__59063A47">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_ORDER" EntitySet="PRODUCT_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_O__IdPro__59FA5E80" Association="Self.FK__PRODUCT_O__IdPro__59FA5E80">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_ORDER" EntitySet="PRODUCT_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_P__IdPro__10566F31" Association="Self.FK__PRODUCT_P__IdPro__10566F31">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_PROMOTION" EntitySet="PRODUCT_PROMOTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_P__IdPro__114A936A" Association="Self.FK__PRODUCT_P__IdPro__114A936A">
+      <End Role="PROMOTION" EntitySet="PROMOTION" />
+      <End Role="PRODUCT_PROMOTION" EntitySet="PRODUCT_PROMOTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_P__IdPro__123EB7A3" Association="Self.FK__PRODUCT_P__IdPro__123EB7A3">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_PROMOTION" EntitySet="PRODUCT_PROMOTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_P__IdPro__1332DBDC" Association="Self.FK__PRODUCT_P__IdPro__1332DBDC">
+      <End Role="PROMOTION" EntitySet="PROMOTION" />
+      <End Role="PRODUCT_PROMOTION" EntitySet="PRODUCT_PROMOTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_P__IdPro__5AEE82B9" Association="Self.FK__PRODUCT_P__IdPro__5AEE82B9">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_PROMOTION" EntitySet="PRODUCT_PROMOTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_P__IdPro__5BE2A6F2" Association="Self.FK__PRODUCT_P__IdPro__5BE2A6F2">
+      <End Role="PROMOTION" EntitySet="PROMOTION" />
+      <End Role="PRODUCT_PROMOTION" EntitySet="PRODUCT_PROMOTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_P__IdPro__5CD6CB2B" Association="Self.FK__PRODUCT_P__IdPro__5CD6CB2B">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_PROMOTION" EntitySet="PRODUCT_PROMOTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_P__IdPro__5DCAEF64" Association="Self.FK__PRODUCT_P__IdPro__5DCAEF64">
+      <End Role="PROMOTION" EntitySet="PROMOTION" />
+      <End Role="PRODUCT_PROMOTION" EntitySet="PRODUCT_PROMOTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdCus__14270015" Association="Self.FK__REVIEW_PR__IdCus__14270015">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdCus__151B244E" Association="Self.FK__REVIEW_PR__IdCus__151B244E">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdCus__5EBF139D" Association="Self.FK__REVIEW_PR__IdCus__5EBF139D">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdCus__5FB337D6" Association="Self.FK__REVIEW_PR__IdCus__5FB337D6">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdPro__160F4887" Association="Self.FK__REVIEW_PR__IdPro__160F4887">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdPro__17036CC0" Association="Self.FK__REVIEW_PR__IdPro__17036CC0">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdPro__60A75C0F" Association="Self.FK__REVIEW_PR__IdPro__60A75C0F">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdPro__619B8048" Association="Self.FK__REVIEW_PR__IdPro__619B8048">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdUse__37A5467C" Association="Self.FK__REVIEW_PR__IdUse__37A5467C">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEW_PR__IdUse__6383C8BA" Association="Self.FK__REVIEW_PR__IdUse__6383C8BA">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="REVIEW_PRODUCT" EntitySet="REVIEW_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USER__IdRole__3A81B327" Association="Self.FK__USER__IdRole__3A81B327">
+      <End Role="ROLE" EntitySet="ROLE" />
+      <End Role="USER" EntitySet="USER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USER__IdRole__66603565" Association="Self.FK__USER__IdRole__66603565">
+      <End Role="ROLE" EntitySet="ROLE" />
+      <End Role="USER" EntitySet="USER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NEWS_USER" Association="Self.FK_NEWS_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="NEWS" EntitySet="NEWS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

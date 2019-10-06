@@ -21,6 +21,7 @@ namespace ThuongMaiDienTu
             this.CATEGORY_NEWS1 = new HashSet<CATEGORY_NEWS>();
             this.COMMENT_PRODUCT = new HashSet<COMMENT_PRODUCT>();
             this.COMMENT_PRODUCT1 = new HashSet<COMMENT_PRODUCT>();
+            this.NEWS = new HashSet<NEWS>();
             this.ORDERs = new HashSet<ORDER>();
             this.ORDERs1 = new HashSet<ORDER>();
             this.ORDER_HISTORY = new HashSet<ORDER_HISTORY>();
@@ -45,6 +46,8 @@ namespace ThuongMaiDienTu
         public virtual ICollection<COMMENT_PRODUCT> COMMENT_PRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMMENT_PRODUCT> COMMENT_PRODUCT1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NEWS> NEWS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDERs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -20,8 +20,10 @@ namespace ThuongMaiDienTu
         public string NewsDetail { get; set; }
         public string NewsThumbail { get; set; }
         public int IdCategory { get; set; }
+        public Nullable<int> IdUser { get; set; }
+        public Nullable<System.DateTime> DateCreate { get; set; }
     
         public virtual CATEGORY_NEWS CATEGORY_NEWS { get; set; }
-        public virtual CATEGORY_NEWS CATEGORY_NEWS1 { get; set; }
+        public virtual USER USER { get; set; }
     }
 }

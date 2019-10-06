@@ -24,9 +24,9 @@ namespace ThuongMaiDienTu
         }
     
         public int IdOrder { get; set; }
-        public int IdCode { get; set; }
+        public Nullable<int> IdCode { get; set; }
         public int IdCustomer { get; set; }
-        public int IdUser { get; set; }
+        public Nullable<int> IdUser { get; set; }
         public Nullable<System.DateTime> DateOrder { get; set; }
         public Nullable<System.DateTime> DateDelivery { get; set; }
         public byte[] TimeDelivery { get; set; }

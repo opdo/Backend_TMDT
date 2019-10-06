@@ -18,19 +18,16 @@ namespace ThuongMaiDienTu
         public CATEGORY_NEWS()
         {
             this.NEWS = new HashSet<NEWS>();
-            this.NEWS1 = new HashSet<NEWS>();
         }
     
         public int IdCategory { get; set; }
         public string CategoryName { get; set; }
         public string CategoryIcon { get; set; }
-        public int IdUser { get; set; }
+        public Nullable<int> IdUser { get; set; }
     
         public virtual USER USER { get; set; }
         public virtual USER USER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NEWS> NEWS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NEWS> NEWS1 { get; set; }
     }
 }
