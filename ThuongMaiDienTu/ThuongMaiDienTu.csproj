@@ -178,11 +178,10 @@
       <DependentUpon>opdo.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdminController.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Controllers\CartController.cs" />
-=======
+
     <Compile Include="Controllers\AjaxController.cs" />
->>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -200,12 +199,11 @@
     <Compile Include="INFO.cs">
       <DependentUpon>opdo.tt</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Include="Models\GioHang.cs" />
-=======
+
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\InfoModel.cs" />
->>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProductOrderModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -308,12 +306,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-<<<<<<< HEAD
+
     <Content Include="Content\Gio-hang.css" />
     <Content Include="Content\Item.css" />
-=======
+
     <Content Include="Content\dataTables.bootstrap4.min.css" />
->>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\product.css" />
     <Content Include="Content\style.css" />
@@ -362,9 +359,9 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
-<<<<<<< HEAD
+
     <Content Include="Scripts\main.js" />
-=======
+
     <Content Include="Scripts\ckeditor.js" />
     <Content Include="Scripts\config.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
@@ -461,7 +458,6 @@
     <Content Include="Scripts\skins\moono-lisa\images\refresh.png" />
     <Content Include="Scripts\skins\moono-lisa\images\spinner.gif" />
     <Content Include="Scripts\styles.js" />
->>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -507,7 +503,7 @@
     <Content Include="webfonts\fa-solid-900.woff" />
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Admin\User.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Product\Info.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Info.cshtml" />
@@ -520,7 +516,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\" />
-=======
+
     <Content Include="Views\Admin\CategoryProduct.cshtml" />
     <Content Include="Views\Admin\CategoryNews.cshtml" />
     <Content Include="Views\Admin\ProductInfo.cshtml" />
@@ -543,7 +539,6 @@
     <Folder Include="img\news\" />
     <Folder Include="img\product\" />
     <Folder Include="Views\Ajax\" />
->>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
