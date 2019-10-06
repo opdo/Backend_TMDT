@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "KhongCoHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Gio-hang.css" rel="stylesheet" />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center">Thông tin giỏ hàng</h2>
+            <div class="container">
+                <img src="~/img/product/empty-cart.png" class="img-cart-empty">
+                <button class="btn btn-outline-primary btn-block">@Html.ActionLink("Quay về mua hàng", "Index", "Home")</button>
+            </div>
+        </div>
+    </div>
+</div>

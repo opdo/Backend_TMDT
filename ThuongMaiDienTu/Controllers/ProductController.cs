@@ -6,16 +6,16 @@ using System.Web.Mvc;
 
 namespace ThuongMaiDienTu.Controllers
 {
-    public class HomeController : Controller
+    public class ProductController : Controller
     {
+
+        // GET: Product
+
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
             return View();
         }
-
-        public ActionResult Category(int id)
+        public ActionResult Info()
         {
             return View();
         }

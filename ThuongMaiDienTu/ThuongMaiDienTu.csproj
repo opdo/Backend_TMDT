@@ -178,7 +178,10 @@
       <DependentUpon>opdo.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="CUSTOMER.cs">
       <DependentUpon>opdo.tt</DependentUpon>
@@ -192,6 +195,7 @@
     <Compile Include="INFO.cs">
       <DependentUpon>opdo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="NEWS.cs">
       <DependentUpon>opdo.tt</DependentUpon>
@@ -271,7 +275,28 @@
     <Content Include="AdminAssets\js\sb-admin-2.js" />
     <Content Include="AdminAssets\js\sb-admin-2.min.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="img\product\-iphone-7-plus-thumbvideo3.jpg" />
+    <Content Include="img\product\apple-iphone-11-pro-1_800x451.jpg" />
+    <Content Include="img\product\banner.png" />
+    <Content Include="img\product\empty-cart.png" />
+    <Content Include="img\product\htc-u11-iphone-vergleich-rcm992x0_992x558-300x200.jpg" />
+    <Content Include="img\product\iphone-11-1_800x450.jpg" />
+    <Content Include="img\product\iphone-11-pro-max-green-400x400.jpg" />
+    <Content Include="img\product\iphone-7-plus-32gb-gold-400x400.jpg" />
+    <Content Include="img\product\iphone-7-plus-gold-400x460.png" />
+    <Content Include="img\product\iphone-banner.jpg" />
+    <Content Include="img\product\iphone-banner2.png" />
+    <Content Include="img\product\oppo-a9-2020-green-1-400x400.jpg" />
+    <Content Include="img\product\oppo-banner.png" />
+    <Content Include="img\product\realme-c2-16gb-new-blue-400x400.jpg" />
+    <Content Include="img\product\samsung-galaxy-a50-128gb-blue-400x400.jpg" />
+    <Content Include="img\product\samsung-galaxy-s10-plus-512gb-ceramic-black-400x400.jpg" />
+    <Content Include="img\product\so-sanh-4_800x451-300x200.jpg" />
+    <Content Include="img\product\tintuc.jpg" />
+    <Content Include="img\product\vivo-y91c-400x400.jpg" />
+    <Content Include="img\product\xiaomi-mi-a3-white-400x400.jpg" />
     <Content Include="Content\all.min.css" />
+    <Content Include="Content\Binhluan.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -280,7 +305,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Gio-hang.css" />
+    <Content Include="Content\Item.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\product.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\Tintuc.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -325,6 +355,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\main.js" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -370,9 +401,18 @@
     <Content Include="webfonts\fa-solid-900.woff" />
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Admin\User.cshtml" />
+    <Content Include="Views\Product\Info.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Info.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Cart\KhongCoHang.cshtml" />
+    <Content Include="Views\Cart\DatHang.cshtml" />
+    <Content Include="Views\Cart\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

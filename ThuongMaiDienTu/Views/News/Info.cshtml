@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Tintuc.css" rel="stylesheet" />
+<div class="container">
+    <br>
+    <nav class="nav nav-piils">
+        @using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+        {
+            foreach (var cateNew in db.CATEGORY_NEWS.ToList())
+            {
+
+                <a class="nav-link active" href="#"><i class="@cateNew.CategoryIcon"></i> @cateNew.CategoryName</a>
+
+            }
+        }
+    </nav>
+    <hr />
+
+    <div class="row">
+        @using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+        {
+            foreach (var info_new in db.NEWS)
+            {
+                <h2 class="title-tintuc">
+                    @info_new.NewsTitle
+                </h2>
+                <img class="img-tintuc" src="~/assets/apple-iphone-11-pro-1_800x451.jpg" alt="">
+                <p class="body-tin">
+                    @info_new.NewsDetail
+                </p>
+                <img class="img-tintuc" src="~/assets/iphone-11-1_800x450.jpg" alt="">
+                <p class="body-tin">
+                    @info_new.NewsDetail
+                </p>
+            }
+        }
+    </div>
+    <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+            <p class="tinlienquan">Tin liên quan</p>
+        </div>
+        <div class="row">
+            <div class="col">
+                @using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+                {
+                    foreach (var news1 in db.NEWS)
+                    {
+                        <div class="card item-tintuc" style="width: 18rem;">
+                            <img src="~/assets/so-sanh-4_800x451-300x200.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">@news1.NewsSumary</p>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
