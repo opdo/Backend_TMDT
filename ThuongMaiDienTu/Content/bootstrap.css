@@ -195,10 +195,6 @@ figure {
   margin: 0 0 1rem;
 }
 
-img {
-  vertical-align: middle;
-  border-style: none;
-}
 
 svg {
   overflow: hidden;
@@ -378,9 +374,7 @@ h3, .h3 {
   font-size: 1.75rem;
 }
 
-h4, .h4 {
-  font-size: 1.5rem;
-}
+
 
 h5, .h5 {
   font-size: 1.25rem;
@@ -2987,9 +2981,7 @@ fieldset:disabled a.btn {
   width: 100%;
 }
 
-.btn-block + .btn-block {
-  margin-top: 0.5rem;
-}
+
 
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
@@ -4559,8 +4551,6 @@ input[type="button"].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
 }
 
 .card > hr {
@@ -4657,7 +4647,6 @@ input[type="button"].btn-block {
 }
 
 .card-img-top {
-  width: 100%;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
 }
