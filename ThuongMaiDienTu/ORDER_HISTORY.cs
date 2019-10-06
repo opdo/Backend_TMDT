@@ -25,6 +25,8 @@ namespace ThuongMaiDienTu
         public virtual ORDER ORDER1 { get; set; }
         public virtual PAYMENT_STATUS PAYMENT_STATUS { get; set; }
         public virtual PAYMENT_STATUS PAYMENT_STATUS1 { get; set; }
+        public virtual PAYMENT_STATUS PAYMENT_STATUS2 { get; set; }
+        public virtual PAYMENT_STATUS PAYMENT_STATUS3 { get; set; }
         public virtual USER USER { get; set; }
         public virtual USER USER1 { get; set; }
     }

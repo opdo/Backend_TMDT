@@ -29,6 +29,10 @@
           <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
           <ScalarProperty Name="CommentStatus" ColumnName="CommentStatus" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+<<<<<<< HEAD
+=======
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+>>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -71,6 +75,11 @@
           <ScalarProperty Name="NewsDetail" ColumnName="NewsDetail" />
           <ScalarProperty Name="NewsThumbail" ColumnName="NewsThumbail" />
           <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+<<<<<<< HEAD
+=======
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+>>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -159,6 +168,10 @@
           <ScalarProperty Name="Count" ColumnName="Count" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Discount" ColumnName="Discount" />
+<<<<<<< HEAD
+=======
+          <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+>>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -191,6 +204,10 @@
           <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
           <ScalarProperty Name="ReviewStatus" ColumnName="ReviewStatus" />
+<<<<<<< HEAD
+=======
+          <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+>>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -202,6 +219,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+<<<<<<< HEAD
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="THUONGMAIDIENTUModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -213,6 +231,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+=======
+>>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
     <EntitySetMapping Name="USERs">
       <EntityTypeMapping TypeName="THUONGMAIDIENTUModel.USER">
         <MappingFragment StoreEntitySet="USER">
@@ -225,6 +245,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="proc_CryptData" FunctionName="THUONGMAIDIENTUModel.Store.proc_CryptData" />
+<<<<<<< HEAD
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="THUONGMAIDIENTUModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="THUONGMAIDIENTUModel.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="THUONGMAIDIENTUModel.Store.sp_dropdiagram" />
@@ -249,5 +270,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="THUONGMAIDIENTUModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="THUONGMAIDIENTUModel.Store.sp_upgraddiagrams" />
+=======
+>>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b
   </EntityContainerMapping>
 </Mapping>

@@ -80,6 +80,7 @@ C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.
 C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.csproj.CopyComplete
 C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.dll
 C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.pdb
+<<<<<<< HEAD
 C:\Users\euste\Desktop\TMDT\Backend_TMDT\ThuongMaiDienTu\bin\ThuongMaiDienTu.dll.config
 C:\Users\euste\Desktop\TMDT\Backend_TMDT\ThuongMaiDienTu\bin\ThuongMaiDienTu.dll
 C:\Users\euste\Desktop\TMDT\Backend_TMDT\ThuongMaiDienTu\bin\ThuongMaiDienTu.pdb
@@ -170,3 +171,13 @@ C:\Users\euste\Desktop\TMDT\Backend_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDien
 C:\Users\euste\Desktop\TMDT\Backend_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.csproj.CopyComplete
 C:\Users\euste\Desktop\TMDT\Backend_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.dll
 C:\Users\euste\Desktop\TMDT\Backend_TMDT\ThuongMaiDienTu\obj\Debug\ThuongMaiDienTu.pdb
+=======
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\EntityFramework.dll
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\EntityFramework.SqlServer.dll
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\PagedList.dll
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\PagedList.Mvc.dll
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\EntityFramework.xml
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\EntityFramework.SqlServer.xml
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\PagedList.xml
+C:\Users\ASUS FX505\Desktop\VINH_TMDT\ThuongMaiDienTu\bin\PagedList.Mvc.xml
+>>>>>>> 1848f68795037dcfe6408b9da33bc198e79dd64b

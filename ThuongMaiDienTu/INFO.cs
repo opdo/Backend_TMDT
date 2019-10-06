@@ -19,6 +19,8 @@ namespace ThuongMaiDienTu
         {
             this.PRODUCT_INFO = new HashSet<PRODUCT_INFO>();
             this.PRODUCT_INFO1 = new HashSet<PRODUCT_INFO>();
+            this.PRODUCT_INFO2 = new HashSet<PRODUCT_INFO>();
+            this.PRODUCT_INFO3 = new HashSet<PRODUCT_INFO>();
         }
     
         public int IdInfo { get; set; }
@@ -29,5 +31,9 @@ namespace ThuongMaiDienTu
         public virtual ICollection<PRODUCT_INFO> PRODUCT_INFO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT_INFO> PRODUCT_INFO1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCT_INFO> PRODUCT_INFO2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCT_INFO> PRODUCT_INFO3 { get; set; }
     }
 }

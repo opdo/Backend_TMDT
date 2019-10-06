@@ -21,6 +21,8 @@ namespace ThuongMaiDienTu
             this.ORDERs1 = new HashSet<ORDER>();
             this.ORDER_HISTORY = new HashSet<ORDER_HISTORY>();
             this.ORDER_HISTORY1 = new HashSet<ORDER_HISTORY>();
+            this.ORDER_HISTORY2 = new HashSet<ORDER_HISTORY>();
+            this.ORDER_HISTORY3 = new HashSet<ORDER_HISTORY>();
         }
     
         public int IdStatus { get; set; }
@@ -34,5 +36,9 @@ namespace ThuongMaiDienTu
         public virtual ICollection<ORDER_HISTORY> ORDER_HISTORY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_HISTORY> ORDER_HISTORY1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ORDER_HISTORY> ORDER_HISTORY2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ORDER_HISTORY> ORDER_HISTORY3 { get; set; }
     }
 }

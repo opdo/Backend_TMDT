@@ -20,7 +20,11 @@ namespace ThuongMaiDienTu
     
         public virtual INFO INFO1 { get; set; }
         public virtual INFO INFO2 { get; set; }
+        public virtual INFO INFO3 { get; set; }
+        public virtual INFO INFO4 { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }
         public virtual PRODUCT PRODUCT1 { get; set; }
+        public virtual PRODUCT PRODUCT2 { get; set; }
+        public virtual PRODUCT PRODUCT3 { get; set; }
     }
 }

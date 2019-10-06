@@ -21,11 +21,16 @@ namespace ThuongMaiDienTu
         public int IdCustomer { get; set; }
         public int IdUser { get; set; }
         public bool ReviewStatus { get; set; }
+        public Nullable<System.DateTime> ReviewDate { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         public virtual CUSTOMER CUSTOMER1 { get; set; }
+        public virtual CUSTOMER CUSTOMER2 { get; set; }
+        public virtual CUSTOMER CUSTOMER3 { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }
         public virtual PRODUCT PRODUCT1 { get; set; }
+        public virtual PRODUCT PRODUCT2 { get; set; }
+        public virtual PRODUCT PRODUCT3 { get; set; }
         public virtual USER USER { get; set; }
         public virtual USER USER1 { get; set; }
     }
