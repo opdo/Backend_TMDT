@@ -19,10 +19,14 @@ namespace ThuongMaiDienTu
         {
             this.COMMENT_PRODUCT = new HashSet<COMMENT_PRODUCT>();
             this.COMMENT_PRODUCT1 = new HashSet<COMMENT_PRODUCT>();
+            this.COMMENT_PRODUCT2 = new HashSet<COMMENT_PRODUCT>();
+            this.COMMENT_PRODUCT3 = new HashSet<COMMENT_PRODUCT>();
             this.ORDERs = new HashSet<ORDER>();
             this.ORDERs1 = new HashSet<ORDER>();
             this.REVIEW_PRODUCT = new HashSet<REVIEW_PRODUCT>();
             this.REVIEW_PRODUCT1 = new HashSet<REVIEW_PRODUCT>();
+            this.REVIEW_PRODUCT2 = new HashSet<REVIEW_PRODUCT>();
+            this.REVIEW_PRODUCT3 = new HashSet<REVIEW_PRODUCT>();
         }
     
         public int IdCustomer { get; set; }
@@ -36,6 +40,10 @@ namespace ThuongMaiDienTu
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMMENT_PRODUCT> COMMENT_PRODUCT1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<COMMENT_PRODUCT> COMMENT_PRODUCT2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<COMMENT_PRODUCT> COMMENT_PRODUCT3 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDERs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDERs1 { get; set; }
@@ -43,5 +51,9 @@ namespace ThuongMaiDienTu
         public virtual ICollection<REVIEW_PRODUCT> REVIEW_PRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<REVIEW_PRODUCT> REVIEW_PRODUCT1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<REVIEW_PRODUCT> REVIEW_PRODUCT2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<REVIEW_PRODUCT> REVIEW_PRODUCT3 { get; set; }
     }
 }

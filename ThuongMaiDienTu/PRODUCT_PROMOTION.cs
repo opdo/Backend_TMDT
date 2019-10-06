@@ -20,7 +20,11 @@ namespace ThuongMaiDienTu
     
         public virtual PRODUCT PRODUCT { get; set; }
         public virtual PRODUCT PRODUCT1 { get; set; }
+        public virtual PRODUCT PRODUCT2 { get; set; }
+        public virtual PRODUCT PRODUCT3 { get; set; }
         public virtual PROMOTION PROMOTION { get; set; }
         public virtual PROMOTION PROMOTION1 { get; set; }
+        public virtual PROMOTION PROMOTION2 { get; set; }
+        public virtual PROMOTION PROMOTION3 { get; set; }
     }
 }

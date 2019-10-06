@@ -25,5 +25,7 @@ namespace ThuongMaiDienTu
         public virtual ORDER ORDER1 { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }
         public virtual PRODUCT PRODUCT1 { get; set; }
+        public virtual PRODUCT PRODUCT2 { get; set; }
+        public virtual PRODUCT PRODUCT3 { get; set; }
     }
 }

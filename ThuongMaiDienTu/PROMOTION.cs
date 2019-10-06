@@ -19,6 +19,8 @@ namespace ThuongMaiDienTu
         {
             this.PRODUCT_PROMOTION = new HashSet<PRODUCT_PROMOTION>();
             this.PRODUCT_PROMOTION1 = new HashSet<PRODUCT_PROMOTION>();
+            this.PRODUCT_PROMOTION2 = new HashSet<PRODUCT_PROMOTION>();
+            this.PRODUCT_PROMOTION3 = new HashSet<PRODUCT_PROMOTION>();
         }
     
         public int IdPromotion { get; set; }
@@ -30,5 +32,9 @@ namespace ThuongMaiDienTu
         public virtual ICollection<PRODUCT_PROMOTION> PRODUCT_PROMOTION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT_PROMOTION> PRODUCT_PROMOTION1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCT_PROMOTION> PRODUCT_PROMOTION2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCT_PROMOTION> PRODUCT_PROMOTION3 { get; set; }
     }
 }

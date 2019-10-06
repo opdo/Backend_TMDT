@@ -197,6 +197,7 @@
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\InfoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProductOrderModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="NEWS.cs">
       <DependentUpon>opdo.tt</DependentUpon>
@@ -251,15 +252,6 @@
       <DependentUpon>opdo.tt</DependentUpon>
     </Compile>
     <Compile Include="ROLE.cs">
-      <DependentUpon>opdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>opdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>opdo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>opdo.tt</DependentUpon>
     </Compile>
     <Compile Include="USER.cs">
@@ -485,6 +477,9 @@
     <Content Include="Views\Admin\Customer.cshtml" />
     <Content Include="Views\Admin\OrderWaiting.cshtml" />
     <Content Include="Views\Admin\OrderInfo.cshtml" />
+    <Content Include="Views\Admin\GiftCode.cshtml" />
+    <Content Include="Views\Admin\Promotion.cshtml" />
+    <Content Include="Views\Admin\PromotionInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

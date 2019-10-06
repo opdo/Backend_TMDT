@@ -78,6 +78,92 @@ namespace ThuongMaiDienTu.Controllers
             return View(order);
         }
 
+        public ActionResult Promotion()
+        {
+            if (Session["login"] is null) return RedirectToAction("Login");
+            return View();
+        }
+
+        public ActionResult PromotionInfo(int? id)
+        {
+            if (Session["login"] is null) return RedirectToAction("Login");
+            PROMOTION promotion = new PROMOTION();
+            if (id != null)
+            {
+                using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+                {
+                    promotion = db.PROMOTIONs.Where(x => x.IdPromotion == id).FirstOrDefault();
+                    if (promotion is null) return HttpNotFound();
+                }
+            }
+            return View(promotion);
+        }
+
+        [HttpPost]
+        public ActionResult PromotionInfo(PROMOTION data)
+        {
+            //try
+            //{
+            //    if (String.IsNullOrEmpty(data.PromotionName)) throw new Exception("Tên chương trình khuyến mãi không được bỏ trống");
+            //    if (data.PromotionEnd is null || data.PromotionStart is null) throw new Exception("Thời gian khuyến mãi không được bỏ trống");
+            //    if (data.PromotionEnd.Value < data.PromotionStart.Value) throw new Exception("Thời gian khuyến mãi không hợp lệ");
+            //    using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            //    {
+
+            //        if (data.IdPromotion == 0)
+            //        {
+            //            db.PROMOTIONs.Add(data);
+            //        }
+            //        else
+            //        {
+            //            var promotionDB = db.PROMOTIONs.Where(x => x.IdPromotion == data.IdPromotion).FirstOrDefault();
+            //            if (productDB is null) throw new Exception("Không tìm thấy sản phẩm này, vui lòng thử lại");
+            //            productDB.IdCategory = product.IdCategory;
+            //            productDB.ProductName = product.ProductName;
+            //            productDB.ProductPrice = product.ProductPrice;
+            //            productDB.ProductSumary = product.ProductSumary;
+            //            productDB.ProductDetail = product.ProductDetail;
+            //            if (imgChanged)
+            //            {
+            //                if (product.PRODUCT_IMG != null)
+            //                    foreach (var item in productDB.PRODUCT_IMG.ToList())
+            //                        db.PRODUCT_IMG.Remove(item);
+            //                foreach (var item in product.PRODUCT_IMG.ToList())
+            //                    productDB.PRODUCT_IMG.Add(item);
+
+            //            }
+
+
+            //            productDB.PRODUCT_INFO.Clear();
+            //            if (product.PRODUCT_INFO != null)
+            //                foreach (var item in product.PRODUCT_INFO.ToList())
+            //                    productDB.PRODUCT_INFO.Add(item);
+
+
+            //            product = productDB;
+
+            //        }
+
+            //        db.SaveChanges();
+            //    }
+            //    ViewBag.Success = "Bài viết được lưu thành công";
+            //    ViewBag.Id = product.IdProduct;
+            //}
+            //catch (Exception ex)
+            //{
+            //    ViewBag.Error = ex.Message;
+            //}
+            //return View(product);
+            return View();
+        }
+
+
+        public ActionResult GiftCode()
+        {
+            if (Session["login"] is null) return RedirectToAction("Login");
+            return View();
+        }
+
         public ActionResult OrderWaiting()
         {
          

@@ -201,7 +201,7 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="product-@product.IdProduct" maxlength="50" placeholder="Số IMEI">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit">
+                                        <button class="btn btn-default" type="button" onclick="UpdateImei(@product.IdProduct)">
                                             <i class="fas fa-save"></i>
                                         </button>
                                     </div>
@@ -265,7 +265,7 @@
 /**/
 
 <script>
-        function Deny(id) {
+    function Deny(id) {
         if (!confirm("Bạn có thực sự muốn TỪ CHỐI đơn hàng này không?")) return;
         $.ajax({
             url: '/Ajax/DenyOrder/' + id,
@@ -279,9 +279,9 @@
             }
             alert(ketqua);
         });
-        }
+    }
 
-        function Delivery(id) {
+    function Delivery(id) {
         if (!confirm("Bạn có thực sự muốn GIAO HÀNG đơn hàng này không?")) return;
         $.ajax({
             url: '/Ajax/DeliveryOrder/' + id,
@@ -290,6 +290,27 @@
         }).done(function (ketqua) {
             if (ketqua == "ok") {
                 alert("Đã chuyển giao hàng thành công");
+                location.reload();
+                return;
+            }
+            alert(ketqua);
+        });
+        }
+
+    function UpdateImei(id, imei) {
+        var imei = $("#product-"+id).val();
+        if (!confirm("Bạn có thực sự muốn CẬP NHẬT IMEI này không?")) return;
+            $.ajax({
+                url: '/Ajax/UpdateImei',
+                type: 'POST',
+                data: {
+                    IdProduct: id,
+                    IdOrder: @Model.IdOrder,
+                    IMEI: imei
+                }
+        }).done(function (ketqua) {
+            if (ketqua == "ok") {
+                alert("Đã cập nhật thành công");
                 location.reload();
                 return;
             }

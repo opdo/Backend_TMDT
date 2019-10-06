@@ -9,6 +9,52 @@ namespace ThuongMaiDienTu.Controllers
 {
     public class AjaxController : Controller
     {
+        public JsonResult GetGiftcode(int id)
+        {
+            if (Session["login"] is null) return null;
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+                var giftDB = db.GIFTCODEs.Where(x => x.IdCode == id).FirstOrDefault();
+                if (giftDB is null) return null;
+                return new JsonResult()
+                {
+                    Data = new { Code = giftDB.Code, Discount = giftDB.Discount },
+                    JsonRequestBehavior = JsonRequestBehavior.DenyGet
+                };
+            }
+        }
+
+        [HttpPost]
+        public string EditGiftcode(GIFTCODE gift)
+        {
+            if (Session["login"] is null) return "";
+
+            if (String.IsNullOrEmpty(gift.Code) || gift.Discount < 1)
+            {
+                return "Vui lòng nhập đầy đủ thông tin";
+            }
+
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+
+                GIFTCODE c = new GIFTCODE();
+                if (gift.IdCode > 0) c = db.GIFTCODEs.Where(x => x.IdCode == gift.IdCode).FirstOrDefault();
+                if (c is null) return "Dữ liệu bất thường vui lòng thử lại sau";
+                c.Code = gift.Code.ToUpper();
+                c.Discount = gift.Discount;
+                if (gift.IdCode == 0) db.GIFTCODEs.Add(c);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+            }
+            return "ok";
+        }
+
         public JsonResult GetProductInfo(int id)
         {
             if (Session["login"] is null) return null;
@@ -249,6 +295,29 @@ namespace ThuongMaiDienTu.Controllers
         }
 
 
+        [HttpPost]
+        public string UpdateImei(ProductOrderModel data)
+        {
+            if (Session["login"] is null) return null;
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+                var product = db.PRODUCT_ORDER.Where(x => x.IdOrder == data.IdOrder && x.IdProduct == data.IdProduct).FirstOrDefault();
+                if (product is null) return "Không tìm thấy đối tượng này";
+                try
+                {
+                    var order = db.ORDERs.Where(x => x.IdOrder == data.IdOrder).FirstOrDefault();
+                    if (order.IdStatus == 5 || order.IdStatus == 4) throw new Exception("Đơn hàng này đã không giao được");
+                    product.IMEI = data.IMEI;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+            }
+            return "ok";
+        }
+
         [HttpDelete]
         public string DeleteReview(int id)
         {
@@ -269,7 +338,7 @@ namespace ThuongMaiDienTu.Controllers
             }
             return "ok";
         }
-
+        
 
         [HttpDelete]
         public string DeleteCustomer(int id)
@@ -280,6 +349,48 @@ namespace ThuongMaiDienTu.Controllers
                 var customer = db.CUSTOMERs.Where(x => x.IdCustomer == id).FirstOrDefault();
                 if (customer is null) return "Không tìm thấy đối tượng này";
                 db.CUSTOMERs.Remove(customer);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+            }
+            return "ok";
+        }
+
+        [HttpDelete]
+        public string DeletePromotion(int id)
+        {
+            if (Session["login"] is null) return null;
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+                var promotion = db.PROMOTIONs.Where(x => x.IdPromotion == id).FirstOrDefault();
+                if (promotion is null) return "Không tìm thấy đối tượng này";
+                db.PROMOTIONs.Remove(promotion);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+            }
+            return "ok";
+        }
+
+        [HttpDelete]
+        public string DeleteGiftcode(int id)
+        {
+            if (Session["login"] is null) return null;
+            using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
+            {
+                var code = db.GIFTCODEs.Where(x => x.IdCode == id).FirstOrDefault();
+                if (code is null) return "Không tìm thấy đối tượng này";
+                db.GIFTCODEs.Remove(code);
                 try
                 {
                     db.SaveChanges();
