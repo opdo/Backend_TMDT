@@ -10,8 +10,7 @@ namespace ThuongMaiDienTu.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
+            ViewBag.Title = "Giá không tưởng";
             return View();
         }
 

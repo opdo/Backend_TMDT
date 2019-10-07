@@ -292,10 +292,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/ThuongMaiDienTu.dll">
-      <publishTime>10/06/2019 21:12:32</publishTime>
+      <publishTime>10/07/2019 12:38:52</publishTime>
     </File>
     <File Include="bin/ThuongMaiDienTu.pdb">
-      <publishTime>10/06/2019 21:12:32</publishTime>
+      <publishTime>10/07/2019 12:38:52</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -358,7 +358,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/06/2019 11:30:52</publishTime>
     </File>
     <File Include="Content/Gio-hang.css">
-      <publishTime>10/06/2019 19:10:35</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Content/Item.css">
       <publishTime>10/06/2019 11:30:09</publishTime>
@@ -373,7 +373,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/06/2019 11:30:09</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>10/06/2019 18:29:31</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Content/Tintuc.css">
       <publishTime>10/06/2019 11:30:09</publishTime>
@@ -400,103 +400,103 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2019 14:34:24</publishTime>
     </File>
     <File Include="img/bank/ABBANK.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/ACB.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/AGRIBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/BACABANK.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/BIDV.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/DONGABANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/EXIMBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/HDBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/IVB.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/JCB.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/MASTERCARD.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/MBBANK.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/MSBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/NAMABANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/NCB.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/OCB.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/OJB.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/PVCOMBANK.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/SACOMBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/SAIGONBANK.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/SCB.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/SHB.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/TECHCOMBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/TPBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/UPI.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/VIB.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/VIETCAPITALBANK.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/VIETCOMBANK.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/VIETINBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/VISA.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/VNMART.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/VNPAYQR.png">
-      <publishTime>10/06/2019 20:39:39</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/bank/VPBANK.png">
-      <publishTime>10/06/2019 20:39:38</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="img/product/-iphone-7-plus-thumbvideo3.jpg">
       <publishTime>10/06/2019 11:30:09</publishTime>
@@ -904,7 +904,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/06/2019 20:47:58</publishTime>
     </File>
     <File Include="Views/Admin/CategoryProduct.cshtml">
-      <publishTime>10/06/2019 19:03:59</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Views/Admin/Comment.cshtml">
       <publishTime>10/06/2019 11:30:55</publishTime>
@@ -925,10 +925,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/06/2019 15:02:59</publishTime>
     </File>
     <File Include="Views/Admin/OrderInfo.cshtml">
-      <publishTime>10/06/2019 21:12:20</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Views/Admin/OrderWaiting.cshtml">
-      <publishTime>10/06/2019 20:54:02</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Views/Admin/Product.cshtml">
       <publishTime>10/06/2019 11:30:55</publishTime>
@@ -943,7 +943,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/06/2019 11:30:55</publishTime>
     </File>
     <File Include="Views/Admin/PromotionInfo.cshtml">
-      <publishTime>10/06/2019 15:10:33</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Views/Admin/Review.cshtml">
       <publishTime>10/06/2019 11:30:55</publishTime>
@@ -955,40 +955,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/06/2019 11:30:09</publishTime>
     </File>
     <File Include="Views/Cart/Fail.cshtml">
-      <publishTime>10/06/2019 20:24:08</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Views/Cart/GioHangPartial.cshtml">
       <publishTime>10/06/2019 11:30:09</publishTime>
     </File>
     <File Include="Views/Cart/Index.cshtml">
-      <publishTime>10/06/2019 20:49:30</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Views/Cart/KhongCoHang.cshtml">
       <publishTime>10/06/2019 11:30:09</publishTime>
     </File>
     <File Include="Views/Cart/Success.cshtml">
-      <publishTime>10/06/2019 20:12:25</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
+    </File>
+    <File Include="Views/Category/Index.cshtml">
+      <publishTime>10/07/2019 12:38:30</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/06/2019 21:07:47</publishTime>
+      <publishTime>10/07/2019 12:34:43</publishTime>
     </File>
     <File Include="Views/News/Index.cshtml">
-      <publishTime>10/06/2019 11:30:09</publishTime>
+      <publishTime>10/07/2019 12:31:14</publishTime>
     </File>
     <File Include="Views/News/Info.cshtml">
       <publishTime>10/06/2019 11:30:09</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>10/06/2019 18:37:13</publishTime>
+      <publishTime>10/07/2019 00:00:52</publishTime>
     </File>
     <File Include="Views/Product/Info.cshtml">
-      <publishTime>10/06/2019 19:35:45</publishTime>
+      <publishTime>10/07/2019 12:35:15</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>10/05/2019 14:34:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/06/2019 20:41:30</publishTime>
+      <publishTime>10/07/2019 12:36:03</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
       <publishTime>10/06/2019 11:30:55</publishTime>
@@ -1000,7 +1003,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2019 14:34:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/06/2019 21:12:33</publishTime>
+      <publishTime>10/07/2019 12:38:53</publishTime>
     </File>
     <File Include="webfonts/fa-brands-400.eot">
       <publishTime>10/05/2019 15:00:40</publishTime>

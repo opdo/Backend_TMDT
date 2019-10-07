@@ -1,7 +1,6 @@
 ﻿@using ThuongMaiDienTu.Helper;
 
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,7 +15,8 @@
                 {
                     foreach (var category in db.CATEGORY_PRODUCT.ToList())
                     {
-                        <a href="/Home/Category/@category.IdCategory" class="list-group-item"><i class="@category.CategoryIcon fa-1.5x"></i> @category.CategoryName </a>
+                         string link = "/dtdd/" + RemoveVietnamese.RemoveSign4VietnameseString(category.CategoryName).Replace(" ", "-") + "-" + category.IdCategory;
+                        <a href="@link" class="list-group-item"><i class="@category.CategoryIcon fa-1.5x"></i> @category.CategoryName </a>
                     }
                 }
             </div>
