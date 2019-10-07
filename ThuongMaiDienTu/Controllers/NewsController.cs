@@ -13,8 +13,9 @@ namespace ThuongMaiDienTu.Controllers
         {
             return View();
         }
-        public ActionResult Info()
+        public ActionResult Info(int id)
         {
+            ViewBag.Id = id;
             return View();
         }
     }

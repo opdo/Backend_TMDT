@@ -292,10 +292,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/ThuongMaiDienTu.dll">
-      <publishTime>10/07/2019 12:38:52</publishTime>
+      <publishTime>10/07/2019 13:44:55</publishTime>
     </File>
     <File Include="bin/ThuongMaiDienTu.pdb">
-      <publishTime>10/07/2019 12:38:52</publishTime>
+      <publishTime>10/07/2019 13:44:55</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -976,10 +976,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/07/2019 12:34:43</publishTime>
     </File>
     <File Include="Views/News/Index.cshtml">
-      <publishTime>10/07/2019 12:31:14</publishTime>
+      <publishTime>10/07/2019 12:50:07</publishTime>
     </File>
     <File Include="Views/News/Info.cshtml">
-      <publishTime>10/06/2019 11:30:09</publishTime>
+      <publishTime>10/07/2019 13:19:28</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
       <publishTime>10/07/2019 00:00:52</publishTime>

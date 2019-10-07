@@ -562,7 +562,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\" />
-    <Folder Include="img\news\" />
+    <Folder Include="img\tintuc\" />
     <Folder Include="Views\Ajax\" />
   </ItemGroup>
   <ItemGroup>

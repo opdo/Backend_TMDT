@@ -15,6 +15,22 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult Index()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+            int idRole = ((USER)Session["login"]).IdRole;
+            switch (idRole)
+            {
+                case 1:
+                    return RedirectToAction("User");
+                    break;
+                case 2:
+                    return RedirectToAction("Product");
+                    break;
+                case 3:
+                    return RedirectToAction("Comment");
+                    break;
+                case 4:
+                    return RedirectToAction("OrderWaiting");
+                    break;
+            }
             return RedirectToAction("User");
         }
 
@@ -28,6 +44,10 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult User()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return RedirectToAction("Index");
+
             return View();
         }
 
@@ -35,6 +55,10 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult Comment()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 3) return RedirectToAction("Index");
+
             return View();
         }
 
@@ -42,6 +66,10 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult Review()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 3) return RedirectToAction("Index");
+
             return View();
         }
 
@@ -49,6 +77,10 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult Product()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 2) return RedirectToAction("Index");
+
             return View();
         }
 
@@ -56,6 +88,10 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult Customer()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 4) return RedirectToAction("Index");
+
             return View();
         }
 
@@ -63,12 +99,20 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult News()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 2) return RedirectToAction("Index");
+
             return View();
         }
 
         public ActionResult OrderInfo(int id)
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return RedirectToAction("Index");
+
             ORDER order = new ORDER();
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
@@ -81,12 +125,20 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult Promotion()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return RedirectToAction("Index");
+
             return View();
         }
 
         public ActionResult PromotionInfo(int? id)
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return RedirectToAction("Index");
+
             PROMOTION promotion = new PROMOTION();
             if (id != null)
             {
@@ -102,6 +154,10 @@ namespace ThuongMaiDienTu.Controllers
         [HttpPost]
         public ActionResult PromotionInfo(PROMOTION data)
         {
+            if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return RedirectToAction("Index");
             try
             {
                 if (String.IsNullOrEmpty(data.PromotionName)) throw new Exception("Tên chương trình khuyến mãi không được bỏ trống");
@@ -148,6 +204,10 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult GiftCode()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return RedirectToAction("Index");
+
             return View();
         }
 
@@ -155,6 +215,10 @@ namespace ThuongMaiDienTu.Controllers
         {
          
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 4) return RedirectToAction("Index");
+
             ViewBag.Id1 = 1;
             ViewBag.Id2 = 2;
             ViewBag.Title = "Đơn chờ duyệt";
@@ -163,6 +227,10 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult OrderDelivery()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 4) return RedirectToAction("Index");
+
+
             ViewBag.Id1 = 3;
             ViewBag.Id2 = 3;
             ViewBag.Title = "Đơn đang giao";
@@ -172,6 +240,10 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult OrderDone()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 4) return RedirectToAction("Index");
+
             ViewBag.Id1 = 4;
             ViewBag.Id2 = 4;
             ViewBag.Title = "Đơn hoàn thành";
@@ -180,6 +252,9 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult OrderDeny()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 4) return RedirectToAction("Index");
             ViewBag.Id1 = 5;
             ViewBag.Id2 = 5;
             ViewBag.Title = "Đơn từ chối";
@@ -190,12 +265,17 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult ProductEdit(int? id)
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 2) return RedirectToAction("Index");
+
             PRODUCT product = new PRODUCT();
             if (id != null)
             {
                 using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
                 {
                     product = db.PRODUCTs.Where(x => x.IdProduct == id).FirstOrDefault();
+                    if (product.IdUser != ((USER)Session["login"]).IdUser && idRole != 1) return RedirectToAction("Product");
                     if (product is null) return HttpNotFound();
                 }
             }
@@ -206,6 +286,11 @@ namespace ThuongMaiDienTu.Controllers
         [ValidateInput(false)]
         public ActionResult ProductEdit(PRODUCT product, HttpPostedFileBase[] files)
         {
+            if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 2) return RedirectToAction("Index");
+
             try
             {
                 if (String.IsNullOrEmpty(product.ProductName)) throw new Exception("Tên sản phẩm không được bỏ trống");
@@ -223,7 +308,8 @@ namespace ThuongMaiDienTu.Controllers
                             if (file.ContentLength > 5 * 1024 * 1024) throw new Exception("Hình ảnh vượt quá 5Mb");
                             string mapPath = Server.MapPath("~/img/product");
                             string filename = product.ProductName.ToLower().Trim().Replace("  ", " ").Replace(" ", "-");
-                            filename = RemoveVietnamese.RemoveSign4VietnameseString(filename) + "-" + i + ".png";
+                            filename = RemoveVietnamese.RemoveSign4VietnameseString(filename).Replace("[", String.Empty).Replace("]", String.Empty).Replace("(", String.Empty).Replace(")", String.Empty).Replace(",", String.Empty).Replace(".", String.Empty).Replace("@", String.Empty).Replace("'", String.Empty).Replace("\"", String.Empty).Replace("\\", String.Empty).Replace("/", String.Empty) +"-" + i + ".png";
+
                             string filePath = mapPath + "/" + filename;
                             if (System.IO.File.Exists(filePath)) System.IO.File.Delete(filePath);
                             file.SaveAs(filePath);
@@ -287,12 +373,17 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult NewsInfo(int? id)
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 2) return RedirectToAction("Index");
+
             NEWS news = new NEWS();
             if (id != null)
             {
                 using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
                 {
                     news = db.NEWS.Where(x => x.IdNews == id).FirstOrDefault();
+                    if (news.IdUser != ((USER)Session["login"]).IdUser && idRole != 1) return RedirectToAction("News");
                     if (news is null) return HttpNotFound();
                 }
             }
@@ -304,6 +395,11 @@ namespace ThuongMaiDienTu.Controllers
         public ActionResult NewsInfo(NEWS news, HttpPostedFileBase file)
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole != 2) return RedirectToAction("Index");
+
+            if (Session["login"] is null) return RedirectToAction("Login");
             try
             {
                 if (String.IsNullOrEmpty(news.NewsTitle)) throw new Exception("Tên bài viết không được bỏ trống");
@@ -314,11 +410,18 @@ namespace ThuongMaiDienTu.Controllers
                     {
                         if (!file.ContentType.Contains("image")) throw new Exception("File hình không hợp lệ");
                         if (file.ContentLength > 5 * 1024 * 1024) throw new Exception("Hình ảnh vượt quá 5Mb");
-                        string mapPath = Server.MapPath("~/img/news");
+                        string mapPath = Server.MapPath("~/img/tintuc");
                         string filename = news.NewsTitle.ToLower().Trim().Replace("  ", " ").Replace(" ", "-");
-                        filename = RemoveVietnamese.RemoveSign4VietnameseString(filename) + ".png";
+                        filename = RemoveVietnamese.RemoveSign4VietnameseString(filename).Replace("[", String.Empty).Replace("]", String.Empty).Replace("(", String.Empty).Replace(")", String.Empty).Replace(",",String.Empty).Replace(".", String.Empty).Replace("@", String.Empty).Replace("'", String.Empty).Replace("\"", String.Empty).Replace("\\", String.Empty).Replace("/", String.Empty) + ".png";
                         string filePath = mapPath + "/" + filename;
-                        if (System.IO.File.Exists(filePath)) System.IO.File.Delete(filePath);
+                        try
+                        {
+                            if (System.IO.File.Exists(filePath)) System.IO.File.Delete(filePath);
+                        }
+                        catch
+                        {
+
+                        }
                         file.SaveAs(filePath);
                         news.NewsThumbail = filename;
                     }
@@ -360,19 +463,31 @@ namespace ThuongMaiDienTu.Controllers
 
         public ActionResult CategoryProduct()
         {
+
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return RedirectToAction("Index");
             return View();
         }
 
         public ActionResult CategoryNews()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return RedirectToAction("Index");
+
             return View();
         }
 
         public ActionResult ProductInfo()
         {
             if (Session["login"] is null) return RedirectToAction("Login");
+
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1 && idRole == 2) return RedirectToAction("Index");
+
             return View();
         }
 

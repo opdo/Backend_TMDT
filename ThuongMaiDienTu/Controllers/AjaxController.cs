@@ -183,6 +183,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteProductInfo(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var info = db.INFOes.Where(x => x.IdInfo == id).FirstOrDefault();
@@ -207,6 +210,10 @@ namespace ThuongMaiDienTu.Controllers
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var product = db.PRODUCTs.Where(x => x.IdProduct == id).FirstOrDefault();
+
+                int idRole = ((USER)Session["login"]).IdRole;
+                if (idRole != 1) return "Bạn không có quyền xóa";
+
                 if (product is null) return "Không tìm thấy đối tượng này";
                 db.PRODUCTs.Remove(product);
                 try
@@ -225,6 +232,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteNews(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var news = db.NEWS.Where(x => x.IdNews == id).FirstOrDefault();
@@ -247,6 +257,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteComment(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var comment = db.COMMENT_PRODUCT.Where(x => x.IdComment == id).FirstOrDefault();
@@ -424,6 +437,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteReview(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var review = db.REVIEW_PRODUCT.Where(x => x.IdReview == id).FirstOrDefault();
@@ -446,6 +462,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteCustomer(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var customer = db.CUSTOMERs.Where(x => x.IdCustomer == id).FirstOrDefault();
@@ -467,6 +486,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeletePromotion(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var promotion = db.PROMOTIONs.Where(x => x.IdPromotion == id).FirstOrDefault();
@@ -489,6 +511,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteGiftcode(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var code = db.GIFTCODEs.Where(x => x.IdCode == id).FirstOrDefault();
@@ -555,6 +580,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteCategoryNews(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var category = db.CATEGORY_NEWS.Where(x => x.IdCategory == id).FirstOrDefault();
@@ -621,6 +649,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteCategory(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var category = db.CATEGORY_PRODUCT.Where(x => x.IdCategory == id).FirstOrDefault();
@@ -642,6 +673,9 @@ namespace ThuongMaiDienTu.Controllers
         public string DeleteUser(int id)
         {
             if (Session["login"] is null) return null;
+            int idRole = ((USER)Session["login"]).IdRole;
+            if (idRole != 1) return "Bạn không có quyền xóa";
+
             using (THUONGMAIDIENTUEntities db = new THUONGMAIDIENTUEntities())
             {
                 var user = db.USERs.Where(x => x.IdUser == id).FirstOrDefault();
