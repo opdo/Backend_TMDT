@@ -113,24 +113,31 @@
                 {
                     foreach (var product in db.PRODUCTs.Where(x => x.IdCategory == id).ToList())
                     {
-                        string link = "/" + RemoveVietnamese.RemoveSign4VietnameseString(@product.ProductName).Replace(" ", "-") + "-" + product.IdProduct;
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="@link" class="text-center"><img class="card-img-top product_img" style="height: 220px" src="~/img/product/@product.PRODUCT_IMG.FirstOrDefault().Filename" alt="@product.PRODUCT_IMG.FirstOrDefault().ImgAlt"></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="@link">@product.ProductName</a>
-                                    </h4>
-                                    <h5 class="product_price">@String.Format("{0:0,0}", product.ProductPrice) VNĐ</h5>
-                                    <p class="card-text product_sumary">
-                                        @product.ProductSumary
-                                    </p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        try
+                        {
+                            string link = "/" + RemoveVietnamese.RemoveSign4VietnameseString(@product.ProductName).Replace(" ", "-") + "-" + product.IdProduct;
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <a href="@link" class="text-center"><img class="card-img-top product_img" style="height: 220px" src="~/img/product/@product.PRODUCT_IMG.FirstOrDefault().Filename" alt="@product.PRODUCT_IMG.FirstOrDefault().ImgAlt"></a>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href="@link">@product.ProductName</a>
+                                        </h4>
+                                        <h5 class="product_price">@String.Format("{0:0,0}", product.ProductPrice) VNĐ</h5>
+                                        <p class="card-text product_sumary">
+                                            @product.ProductSumary
+                                        </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
                     }
                 }
             </div>
